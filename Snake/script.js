@@ -142,7 +142,7 @@ function checkGameOver(){
 };
 
 function displayGameOver(){
-    ctx.font = "50px Segoe UI";
+    ctx.font = "45px Press Start";
     ctx.fillStyle = "white";
     ctx.textAlign = "center";
     ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
