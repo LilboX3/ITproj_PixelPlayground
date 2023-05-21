@@ -55,6 +55,7 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
+drawPaddles(); //TEST
 
 function gameStart(){
 
@@ -69,7 +70,10 @@ function clearBoard(){
 }
 
 function  drawPaddles(){
+    ctx.strokeStyle = paddleBorder;
 
+    ctx.fillStyle = paddle1Color;
+    ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);//x, y, width, height
 }
 
 function createBall(){
