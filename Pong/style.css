@@ -20,3 +20,25 @@
     border-radius: 15px;
     cursor: pointer;
 }
+
+button {
+    position: absolute;
+    left: 45%;
+    margin-bottom: 5%;
+}
+
+h1{
+    text-align: center;
+}
+
+.player1{
+    position:absolute;
+    left: 15%;
+    font-size: x-large;
+}
+
+.player2{
+    position:absolute;
+    right: 15%;
+    font-size: x-large;
+}
