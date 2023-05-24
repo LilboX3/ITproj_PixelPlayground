@@ -201,7 +201,9 @@ function crazydrawBall(crazyBallX, crazyBallY){
     crazyctx.stroke(); //Linie zeichnen
     crazyctx.fill(); //ball mit Farbe füllen
 }
-
+var point1 = false;
+var point2 = false;
+var point3 = false;
 
 function crazycheckCollision(){
     //+radius, da y koordinate in zentrum des kreis ist
@@ -228,18 +230,18 @@ function crazycheckCollision(){
 
     //LINKS Tor!!! player2 bekommt punkt 
     if(crazyBallX <= 0){
+        if(!point1){
         crazyPlayer2Score +=1;
-        crazyupdateScore();
-        crazycreateBalls(); //neuen Ball erstellen
-        return;
+        point1 = true;
+        }
     }
 
     //RECHTS Tor!!! player1 bekommt punkt
     if(crazyBallX >= crazyWidth){
-        crazyPlayer1Score +=1;
-        crazyupdateScore();
-        crazycreateBalls();
-        return;
+        if(!point1){
+            crazyPlayer1Score +=1;
+            point1 = true;
+            }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
@@ -265,18 +267,30 @@ function crazycheckCollision(){
 
     crazyBall2Collision();
     crazyBall3Collision();
+    if(point1&&point2&&point3){
+        point1 = false;
+        point2= false;
+        point3 = false;
+        crazyupdateScore();
+        crazycreateBalls();
+        return;
+    }   
 }
 
 function crazyBall2Collision(){
     if(crazyBall2X <= 0){
+        if(!point2){
         crazyPlayer2Score +=1;
-        return;
+        point2 = true;
+        }
     }
 
     //RECHTS Tor!!! player1 bekommt punkt
     if(crazyBall2X >= crazyWidth){
+        if(!point2){
         crazyPlayer1Score +=1;
-        return;
+        point2 = true;
+        }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
@@ -303,14 +317,18 @@ function crazyBall2Collision(){
 
 function crazyBall3Collision(){
     if(crazyBall2X <= 0){
+        if(!point3){
         crazyPlayer2Score +=1;
-        return;
+        point3 = true;
+        }
     }
 
     //RECHTS Tor!!! player1 bekommt punkt
     if(crazyBall2X >= crazyWidth){
-        crazyPlayer1Score +=1;
-        return;
+        if(!point3){
+        crazyPlayer1Score +=1;  
+        point3 = true;
+        }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
