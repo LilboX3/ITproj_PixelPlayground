@@ -17,8 +17,9 @@
     player2 Name
 </div>
     <div id="gameMode">
-        <button id="normalmode">Play Normal game mode</button> <br> <br>
-        <button id="crazymode">Play Crazy game mode</button>
+        <button id="normalmode">Play Normal game mode - for beginners</button> <br> <br>
+        <button id="crazymode">Play Crazy game mode - multiple balls</button> <br> <br>
+        <button id="illusionmode">Play Illusion mode - only 1 ball is real</button>
         
     </div>
 
@@ -28,6 +29,13 @@
         <button id="resetBtn">Reset</button>
         <button id="endBtn"> End Game</button>
     </div>
+    <div id="crazyContainer">
+        <canvas id="crazyBoard" width="500" height="500"></canvas>
+        <div id="crazyScore">0 : 0</div>
+        <button id="crazyReset">Reset</button>
+        <button id="crazyEnd"> End Game</button>
+    </div>
 </body>
 <script src="pong.js"></script>
+<script src="pong2.js"></script>
 </html>

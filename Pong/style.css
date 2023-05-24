@@ -9,11 +9,24 @@ button {
     text-align: center;
 }
 
+#crazyContainer{
+    text-align: center;
+}
+
 #gameBoard{
     border: 3px solid;
 }
 
+#crazyBoard{
+    border: 3px solid;
+}
+
 #scoreText{
+    font-family: "consolas", monospace;
+    font-size: 100px;
+}
+
+#crazyScore{
     font-family: "consolas", monospace;
     font-size: 100px;
 }
@@ -30,7 +43,29 @@ button {
     
 }
 
+#crazyReset{
+    font-family: "Permanent Marker", cursive;
+    font-size: 22px;
+    width: 100px;
+    height: 50px;
+    border: 4px solid;
+    border-radius: 15px;
+    cursor: pointer;
+    bottom: 7%;
+}
+
 #endBtn{
+    font-family: "Permanent Marker", cursive;
+    font-size: 22px;
+    width: 150px;
+    height: 50px;
+    border: 4px solid;
+    border-radius: 15px;
+    bottom: 1%;
+    cursor: pointer;
+}
+
+#crazyEnd{
     font-family: "Permanent Marker", cursive;
     font-size: 22px;
     width: 150px;
