@@ -9,17 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
     <script src="TicTacToe.js"></script>
     <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="prstartk.ttf">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
-<body>
-    <main class="background">
-        <section class="title">
+<body class="background">
+    <main>
+        <div class="container gameField">
+        <section>
             <h1>Tic Tac Toe</h1>
         </section>
         <section class="display">
             Player <span class="display-player playerX">X</span>'s turn
         </section>
-        <section class="container">
+        <section class="containerField">
             <div class="tile"></div>
             <div class="tile"></div>
             <div class="tile"></div>
@@ -30,10 +33,11 @@
             <div class="tile"></div>
             <div class="tile"></div>
         </section>
-        <section class="display announcer hide"></section>
+        <section class="display announcer hide scoreTxt"></section>
         <section class="controls">
             <button id="reset">Reset</button>
         </section>
+        </div>
     </main>
 </body>
 
