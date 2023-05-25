@@ -21,7 +21,7 @@ const crazyHeight = crazyBoard.height;
 //Größe des balles dann 25 durchmesser
 const crazyRadius = 12.5;
 //Spieler paddles distanz die sie bewegen
-const crazyPaddleSpeed = 15;
+const crazyPaddleSpeed = 35;
 
 let crazyIntervalID;
 let crazyBallSpeed = 1; //lowest speed
@@ -201,6 +201,8 @@ function crazydrawBall(crazyBallX, crazyBallY){
     crazyctx.stroke(); //Linie zeichnen
     crazyctx.fill(); //ball mit Farbe füllen
 }
+
+//checken, ob dieser ball schon tor getroffen hat
 var point1 = false;
 var point2 = false;
 var point3 = false;
@@ -233,6 +235,8 @@ function crazycheckCollision(){
         if(!point1){
         crazyPlayer2Score +=1;
         point1 = true;
+        crazyBallXDirection = 0;
+        crazyBallYDirection = 0;
         }
     }
 
@@ -241,26 +245,32 @@ function crazycheckCollision(){
         if(!point1){
             crazyPlayer1Score +=1;
             point1 = true;
+            crazyBallXDirection = 0;
+            crazyBallYDirection = 0;
             }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
     if(crazyBallX <= (crazyPaddle1.x + crazyPaddle1.width +crazyRadius)){
         if(crazyBallY > crazyPaddle1.y && crazyBallY < (crazyPaddle1.y+crazyPaddle1.height)){
+            if(!point1){
             //UNSTUCK BALL: setz ihn bei breite an paddle1 anfang
             crazyBallX = (crazyPaddle1.x + crazyPaddle1.width) + crazyRadius;
             crazyBallXDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
 
     if(crazyBallX >= (crazyWidth - crazyPaddle2.width - crazyRadius)){
         if(crazyBallY > crazyPaddle2.y && crazyBallY < (crazyPaddle2.y+crazyPaddle2.height)){
+            if(!point1){
             //UNSTUCK BALL: setz ihn auf paddle2 anfang
             crazyBallX = crazyPaddle2.x - crazyRadius;
             crazyBallXDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
@@ -282,6 +292,8 @@ function crazyBall2Collision(){
         if(!point2){
         crazyPlayer2Score +=1;
         point2 = true;
+        crazyBall2XDirection = 0;
+        crazyBall2YDirection = 0;
         }
     }
 
@@ -290,64 +302,78 @@ function crazyBall2Collision(){
         if(!point2){
         crazyPlayer1Score +=1;
         point2 = true;
+        crazyBall2XDirection = 0;
+        crazyBall2YDirection = 0;
         }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
     if(crazyBall2X <= (crazyPaddle1.x + crazyPaddle1.width +crazyRadius)){
         if(crazyBall2Y > crazyPaddle1.y && crazyBall2Y < (crazyPaddle1.y+crazyPaddle1.height)){
+            if(!point2){
             //UNSTUCK BALL: setz ihn bei breite an paddle1 anfang
             crazyBall2X = (crazyPaddle1.x + crazyPaddle1.width) + crazyRadius;
             crazyBall2XDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
 
     if(crazyBall2X >= (crazyWidth - crazyPaddle2.width - crazyRadius)){
         if(crazyBall2Y > crazyPaddle2.y && crazyBall2Y < (crazyPaddle2.y+crazyPaddle2.height)){
+            if(!point2){
             //UNSTUCK BALL: setz ihn auf paddle2 anfang
             crazyBall2X = crazyPaddle2.x - crazyRadius;
             crazyBall2XDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
 }
 
 function crazyBall3Collision(){
-    if(crazyBall2X <= 0){
+    if(crazyBall3X <= 0){
         if(!point3){
         crazyPlayer2Score +=1;
         point3 = true;
+        crazyBall3XDirection = 0;
+        crazyBall3YDirection = 0;
         }
     }
 
     //RECHTS Tor!!! player1 bekommt punkt
-    if(crazyBall2X >= crazyWidth){
+    if(crazyBall3X >= crazyWidth){
         if(!point3){
         crazyPlayer1Score +=1;  
         point3 = true;
+        crazyBall3XDirection = 0;
+        crazyBall3YDirection = 0;
         }
     }
 
     //CHECKEN ob paddles Ball treffen  v v v v
     if(crazyBall3X <= (crazyPaddle1.x + crazyPaddle1.width +crazyRadius)){
         if(crazyBall3Y > crazyPaddle1.y && crazyBall3Y < (crazyPaddle1.y+crazyPaddle1.height)){
+            if(!point3){
             //UNSTUCK BALL: setz ihn bei breite an paddle1 anfang
             crazyBall3X = (crazyPaddle1.x + crazyPaddle1.width) + crazyRadius;
             crazyBall3XDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
 
     if(crazyBall3X >= (crazyWidth - crazyPaddle2.width - crazyRadius)){
         if(crazyBall3Y > crazyPaddle2.y && crazyBall3Y < (crazyPaddle2.y+crazyPaddle2.height)){
+            if(!point3){
             //UNSTUCK BALL: setz ihn auf paddle2 anfang
             crazyBall3X = crazyPaddle2.x - crazyRadius;
             crazyBall3XDirection *= -1; //Richtung "negieren";
             crazyBallSpeed +=1;
+            }
         }
 
     }
