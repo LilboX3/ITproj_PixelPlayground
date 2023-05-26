@@ -96,9 +96,9 @@ function crazynextTick(){
         crazyclearBoard();
         crazydrawPaddles();
         crazymoveBall();
-        crazydrawBall(crazyBallX, crazyBallY);
-        crazydrawBall(crazyBall2X, crazyBall2Y);
-        crazydrawBall(crazyBall3X, crazyBall3Y);
+        crazydrawBall(crazyBallX, crazyBallY, ballColor);
+        crazydrawBall(crazyBall2X, crazyBall2Y, "red");
+        crazydrawBall(crazyBall3X, crazyBall3Y, "purple");
         crazycheckCollision();
         crazynextTick();
     }, 10);
@@ -192,7 +192,7 @@ function crazymoveBall(){
 }
 
 //Den Ball zeichnen: AUSSEHEN BALL BEI VARIABLEN ÄNDERN (ballColor, ballBorderColor)
-function crazydrawBall(crazyBallX, crazyBallY){
+function crazydrawBall(crazyBallX, crazyBallY, ballColor){
     crazyctx.fillStyle = ballColor;
     crazyctx.strokeStyle = ballBorderColor;
     crazyctx.lineWidth = 2;
@@ -226,7 +226,7 @@ function crazycheckCollision(){
     if(crazyBall3Y <= 0 + crazyRadius){
         crazyBall3YDirection *= -1; //Richtung "negieren"
     }
-    if(crazyBallY >= crazyHeight - crazyRadius){
+    if(crazyBall3Y >= crazyHeight - crazyRadius){
         crazyBall3YDirection *= -1; //Richtung "negieren"
     }
 
