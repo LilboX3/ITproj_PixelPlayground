@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Press Start';
+    src: url('prstartk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(99, 128, 38);
+    background-color: linear-gradient(0deg, #03737a33, #03737a33),
+        linear-gradient(0deg, #0066c442, #0066c442),
+        #000000;
+}
+
+
+.background {
+    background-image: url("pics/homepage_background.png");
+    background-size: cover;
+}
+
+.container {
+    background-color: white;
+    width: 650px;
+    /*max-width: 500px;*/
+    border-radius: 7px;
+}
+
+.container {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    font-family: 'Press Start', sans-serif;
+}
+
+.container h2 {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 10px #9797fe;
+}
+
+
+.placeHolder {
+    font-family: 'Press Start', sans-serif;
+}
+
+.container header span {
+    color: rgb(220, 20, 20);
+}
+
+.container .content {
+    margin: 1.3rem;
+}
+
+.container .word {
+    font-family: 'Press Start', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    margin-right: -1rem;
+    text-shadow: 1px 1px 10px #9797fe;
+}
+
+.content .detail {
+    margin: 25px 0;
+}
+
+.detail {
+    margin-bottom: 10px;
+    font-family: 'Press Start', sans-serif;
+}
+
+.content input {
+    width: 95%;
+    height: 60px;
+    outline: none;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid #bbb;
+    padding: 0 15px;
+    box-shadow: inset 1px 1px 4px #ccc,
+        inset 1px -1px 4px #ccc;
+}
+
+.content .btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.content .btn button {
+    border: none;
+    outline: none;
+    padding: 15px;
+    border-radius: 5px;
+    width: calc(100% / 2 - 5px);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.content .btn .refresh-word {
+    background: #333;
+    font-family: 'Press Start', sans-serif;
+}
+
+.content .btn .check-word {
+    background: rgb(6, 128, 71);
+    font-family: 'Press Start', sans-serif;
+}
+
+.content .btn .check-word:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
