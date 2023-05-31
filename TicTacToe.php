@@ -36,3 +36,5 @@ include_once 'navbar.php';
     </main>
     <script src="TicTacToe/TicTacToe.js"></script>
 </body>
+
+</html>
