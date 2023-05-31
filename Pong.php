@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<?php
+include_once 'navbar.php';
+?>
+    <link rel="stylesheet" href="Pong/pong.css">
     <title>Play Pong!</title>
     
 </head>
-<body>
+<body class="background">
 <h1>Play Pong</h1>
 <div class="player1">
     player1 Name
@@ -37,11 +34,18 @@
         <button id="crazyEnd"> End Game</button>
     </div>
 
+    <div id="illusionContainer">
+        <canvas id="illusionBoard" width="500" height="500"></canvas>
+        <div id="illusionScore">0 : 0</div>
+        <button id="illusionReset">Reset</button>
+        <button id="illusionEnd"> End Game</button>
+    </div>
+
     <!---<div id="illusionContainer">
         <canvas id="illusionBoard" width="500" height="500"></canvas>
     </div> !--->
 </body>
-<script src="pong.js"></script>
-<script src="pong2.js"></script>
-<script src="pong3.js"></script>
+<script src="Pong/pong.js"></script>
+<script src="Pong/pong2.js"></script>
+<script src="Pong/pong3.js"></script>
 </html>

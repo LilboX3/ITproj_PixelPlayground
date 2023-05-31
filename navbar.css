@@ -1,32 +1,47 @@
 /* Add a black background color to the top navigation */
-.topnav {
-    background-color: darkblue;
-    overflow: hidden;
-    margin-bottom:5%;
-  }
-
-.centered {
-    margin-left:28%;
+#logo {
+  position: absolute;
+  top: 2px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
 }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
-    float:left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
 
-  /* Change the color of links on hover */
-  .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+.topnav {
+  background-color: darkblue;
+  overflow: hidden;
+  margin-bottom: 3%;
+  display: flex;
+  padding: 14px 16px;  
+  justify-content: flex-end; /* Change this property to flex-end */
+  align-items: center; /* Add this property */
+}
+
+.background {
+  background-image: url("pics/homepage_background.png");
+  background-size: cover;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
   
-  /* Add a color to the active/current link */
-  .topnav a.active {
-    background-color: darkorchid;
-    color: white;
-  }
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: darkorchid;
+  color: white;
+}

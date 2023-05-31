@@ -38,10 +38,7 @@
     background-color: rgb(155, 34, 159);
 }
 
-.background {
-    background-image: url("pics/homepage_background.png");
-    background-size:cover;
-}
+
 
 .gameField{
     background-color: rgb(4, 0, 30);

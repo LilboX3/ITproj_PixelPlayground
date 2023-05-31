@@ -12,9 +12,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$table = "highscore";
+$table = "users";
 
-$columns = array("Username", "HighScore", "Game");
+$columns = array("username", "password");
 
 $query = "SELECT " . implode(",", $columns) . " FROM " . $table;
 
@@ -25,7 +25,5 @@ if (!$result) {
 }
 
 while ($row = mysqli_fetch_assoc($result)) {
-    echo "Username: " . $row["Username"] . ", HighScore: " . $row["HighScore"] . ", Game: " . $row["Game"] . "<br>";
+    echo "username: " . $row["username"] . "password: " . $row["password"] . "<br>";
 }
-
-mysqli_close($conn);

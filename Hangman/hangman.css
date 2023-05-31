@@ -103,17 +103,8 @@ h1 {
     border-radius: 0%;
 }
 
-.background {
-    background-image: url("pics/homepage_background.png");
-    background-size:cover;
-}
 
-.container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 
 

@@ -2,6 +2,8 @@ const gameBoard = document.querySelector("#gameBoard");
 //verstecken, bis game Mode ausgewählt wurde
 document.querySelector("#gameContainer").style.display = 'none';
 document.querySelector("#crazyContainer").style.display = 'none';
+document.querySelector("#illusionContainer").style.display = 'none';
+
 
 
 //Normalmode 
@@ -20,22 +22,22 @@ document.getElementById('normalmode').onclick = function() {
 
     /* Farben alle änderbar */
     //Hintergrundfarbe
-    const boardBackground = "forestgreen";
+    const boardBackground = "blue";
     //Spieler 1 Farbe
     const paddle1Color = "lightblue";
     //Spieler 2 Farbe
-    const paddle2Color = "red";
+    const paddle2Color = "magenta";
     //spieler outline
     const paddleBorder = "black";
     //Ballfarbe
-    const ballColor = "yellow";
+    const ballColor = "purple";
     //Ball outline farbe
     const ballBorderColor = "black";
 
     //Größe des balles dann 25 durchmesser
     const ballRadius = 12.5;
     //Spieler paddles distanz die sie bewegen
-    const paddleSpeed = 15;
+    const paddleSpeed = 25;
 
     let intervalID;
     let ballSpeed = 1; //lowest speed
@@ -203,6 +205,7 @@ document.getElementById('normalmode').onclick = function() {
             }
 
         }
+        
     }
 
     //Die beiden Paddles bewegen
