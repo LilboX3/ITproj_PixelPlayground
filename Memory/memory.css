@@ -1,0 +1,30 @@
+
+   .labels {
+   font-variant: small-caps;
+   color: white;
+    text-shadow: 2px 2px purple;
+    font-size: 20px;
+    float: left;
+   }
+   
+   .infobox, #spielbereich {
+       border: 10px solid transparent;
+       background-color: darkslateblue;
+    border: 5px solid purple;
+    border-radius: 4%;
+    outline: 1px solid black;
+    margin-top: 30px;
+    margin-left: 10px;
+    float:left;
+   }
+   
+   .karte{
+       height:66px;
+       width:66px;
+       float:left;
+       margin:2px;
+   }
+   
+   #spielbereich {
+       overflow: auto;
+   }
