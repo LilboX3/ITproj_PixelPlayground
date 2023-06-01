@@ -18,6 +18,7 @@ include_once 'navbar.php';
     
     </div>
   <div class="col-10">
+
  <!--<div class="infobox">
     <div class="labels">
       Spieler:  
@@ -33,24 +34,19 @@ include_once 'navbar.php';
  <div id = "spielbereich">
     
   </div>
-  
   <div class="infobox">
-  <div id="tries" class="labels">
-      Tries: 0
-  </div>
-  <div class="labels">
-      
-  </div>
+    <div id="tries" class="labels">
+        Tries: 0
+    </div>
  </div>
+
    <div class="infobox">
-   <div class="labels" id="time">
-      Time passed:
-      <button onClick="timeDisplay()" id="timebutton">Start a timer!</button>
+    <div class="labels" id="time">
+        Time passed:
+        <button onClick="timeDisplay()" id="timebutton">Start a timer!</button>
+    </div>
    </div>
-   <div class="labels">
-  
-     </div>
-   </div>
+
   </div>
 
    <div class="col-1"> 

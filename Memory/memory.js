@@ -81,8 +81,8 @@ function found(img){
 }
 
 function hide(img){
-    document.getElementById(toCompare.id).setAttribute("src", "pics/memoryBg.png");
-        document.getElementById(img.id).setAttribute("src", "pics/memoryBg.png");
+    document.getElementById(toCompare.id).setAttribute("src", "Memory/images/unaufgedeckt.png");
+        document.getElementById(img.id).setAttribute("src", "Memory/images/unaufgedeckt.png");
         toCompare = null;
         clicked = 0;
 }
@@ -116,28 +116,28 @@ function showPic(img){
     }
 
     if(elClass == "img0"){
-        element.setAttribute("src","images/card1.png");
+        element.setAttribute("src","Memory/images/card1.png");
     }
     else if(elClass == "img1"){
-        element.setAttribute("src","images/card2.png");
+        element.setAttribute("src","Memory/images/card2.png");
     }
     else if(elClass == "img2"){
-        element.setAttribute("src","images/card3.png");
+        element.setAttribute("src","Memory/images/card3.png");
     }
     else if(elClass == "img3"){
-        element.setAttribute("src","images/card4.png");
+        element.setAttribute("src","Memory/images/card4.png");
     }
     else if(elClass == "img4"){
-        element.setAttribute("src","images/card5.png");
+        element.setAttribute("src","Memory/images/card5.png");
     }
     else if(elClass == "img5"){
-        element.setAttribute("src","images/card6.png");
+        element.setAttribute("src","Memory/images/card6.png");
     }
     else if(elClass == "img6"){
-        element.setAttribute("src","images/card7.png");
+        element.setAttribute("src","Memory/images/card7.png");
     }
     else if(elClass == "img7"){
-        element.setAttribute("src","images/card8.png");
+        element.setAttribute("src","Memory/images/card8.png");
     }
 
     if(toCompare==null){
