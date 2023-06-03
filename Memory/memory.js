@@ -16,7 +16,7 @@ fillArray(images);
 function incrementSeconds(cancel) {
     if(score>=16){
         clearInterval(cancel);
-        timer.innerHTML = "Gewonnen in: " + seconds + " sek.";
+        timer.innerHTML = "Won in: " + seconds + " sek.";
         return;
     }
     seconds += 1;
@@ -151,7 +151,7 @@ function showPic(img){
 
 function countTry(){
     tries++;
-    document.getElementById("tries").innerHTML = "Versuche: "+tries;
+    document.getElementById("tries").innerHTML = "Tries: "+tries;
 }
 
 

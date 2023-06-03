@@ -9,6 +9,7 @@ document.querySelector("#illusionContainer").style.display = 'none';
 //Normalmode 
 document.getElementById('normalmode').onclick = function() {
     resetGame();
+    document.getElementById("ponghead").innerHTML = 'Normal Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#gameContainer").style.display = 'block';
 }
@@ -286,6 +287,7 @@ document.getElementById('normalmode').onclick = function() {
     document.getElementById('endBtn').onclick = function(){
         document.querySelector("#gameMode").style.display = 'block';
         document.querySelector("#gameContainer").style.display = 'none';
+        document.getElementById("ponghead").innerHTML = 'Play Pong';
         console.log("game ended");
     }
 

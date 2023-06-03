@@ -9,6 +9,7 @@ include_once 'navbar.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="Memory/memory.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <title>Play Memory!</title>
 </head>
 <body>
@@ -19,17 +20,6 @@ include_once 'navbar.php';
     </div>
   <div class="col-10">
 
- <!--<div class="infobox">
-    <div class="labels">
-      Spieler:  
-    </div>
-    <div id="showname" class="labels">
-      <form name="name" id="yourname" onSubmit="return setName()">
-      <input type="text"> <input type="submit" value="done">
-    </form>
-    </div>
- </div>-->
- 
  
  <div id = "spielbereich">
     

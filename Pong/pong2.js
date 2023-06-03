@@ -1,9 +1,9 @@
 //Crazy game mode:
 document.getElementById('crazymode').onclick = function() {
     crazyresetGame();
+    document.getElementById("ponghead").innerHTML = 'Crazy Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#crazyContainer").style.display = 'block';
-    console.log("balls");
 }
 
 const crazyBoard = document.querySelector("#crazyBoard");
@@ -97,8 +97,8 @@ function crazynextTick(){
         crazydrawPaddles();
         crazymoveBall();
         crazydrawBall(crazyBallX, crazyBallY, ballColor);
-        crazydrawBall(crazyBall2X, crazyBall2Y, "red");
-        crazydrawBall(crazyBall3X, crazyBall3Y, "purple");
+        crazydrawBall(crazyBall2X, crazyBall2Y, ballColor);
+        crazydrawBall(crazyBall3X, crazyBall3Y, ballColor);
         crazycheckCollision();
         crazynextTick();
     }, 10);
@@ -470,6 +470,8 @@ function crazyresetGame(){
 document.getElementById('crazyEnd').onclick = function(){
     document.querySelector("#gameMode").style.display = 'block';
     document.querySelector("#crazyContainer").style.display = 'none';
+    crazyresetGame();
+    document.getElementById("ponghead").innerHTML = 'Play Pong';
     console.log("game ended");
 }
 //-------------------------------CRAZY MODE END---------------------------------

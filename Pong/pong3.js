@@ -1,8 +1,8 @@
 document.getElementById('illusionmode').onclick = function() {
-    resetGame();
+    illusionresetGame();
+    document.getElementById("ponghead").innerHTML = 'Illusion Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#illusionContainer").style.display = 'block';
-    console.log("balls");
 }
 
 const illusionBoard = document.querySelector("#illusionBoard");
@@ -384,6 +384,7 @@ function illusionresetGame(){
 document.getElementById('illusionEnd').onclick = function(){
     document.querySelector("#gameMode").style.display = 'block';
     document.querySelector("#illusionContainer").style.display = 'none';
+    illusionresetGame();
+    document.getElementById("ponghead").innerHTML = 'Play Pong';
     console.log("game ended");
 }
-//-------------------------------CRAZY MODE END---------------------------------

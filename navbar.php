@@ -36,6 +36,7 @@ session_start();
                 <a href="TicTacToe.php">Tic Tac Toe</a>
                 <a href="Tetris.php">Tetris</a>
                 <a href="WordScramble.php">Scramble</a>
+                <a href="memory.php">Memory</a>
 
 
             </div>
