@@ -5,6 +5,7 @@ include_once 'navbar.php';
 // database connection file
 require_once 'Backend/db.php';
 
+
 $error = '';
 
 if (isset($_POST['submit'])) {
@@ -23,6 +24,7 @@ if (isset($_POST['submit'])) {
             while ($row = mysqli_fetch_assoc($result)) {
                 if (password_verify($password, $row['password'])) {
                     $_SESSION['username'] = $row['username'];
+                    $_SESSION['user_id'] = $row['id']; // Add user ID to the session
                     header('Location: Homepage.php');
                     exit();
                 } else {
@@ -45,11 +47,11 @@ if (isset($_POST['submit'])) {
     <div class="container" id="login-container">
         <div class="signup-form-form">
             <h1 class="pt-3 mb-3">Login👾</h1>
-            <form action="login.php" method="post" >
+            <form action="login.php" method="post">
 
                 <div class="col-md-6">
                     <label for="username">Benutzername:</label>
-                    <input type="text" placeholder="Username...🎮🕹️" name="username" id="username" required>
+                    <input type="text" placeholder="Username...🎮🕹️" name="username" id="username" required>                
                 </div>
                 <div class="col-md-6">
                     <br>
