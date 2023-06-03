@@ -5,12 +5,17 @@ var currWord;
 var toFind = 0;
 var mistakes = 0;
 var wordIndex;
+var score = 0;
+var username = "";
+
+
 //must be same length
 console.log("words and hints array same length: " + (words.length==hints.length));
 
 $(document).ready(
    setupGame(),
-   wordLines()
+   wordLines(),
+   isLoggedIn(),
 );
 
 //button pressed to show a hint
@@ -50,7 +55,29 @@ function wordLines(){
         }
     }
 }
-
+function isLoggedIn() {
+    $.ajax({
+        url: "./src/check_login.php",
+        type: "GET",
+        success: function(response) {
+            if (response === "true") {
+                console.log("User is logged in");
+                // User is logged in, continue with the game
+            } else {
+                console.log("User is not logged in");
+                    //pop up to ask for name if the player isnt logged in
+                username = prompt("Please choose a name to be remembered by King! :");
+                if (username == null || username.trim() == "") {
+                    console.log("Username is required.");
+                    return;
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error checking login status: " + error);
+        }
+    });
+}
 //when a letter button is clicked, check if its right or not
 function input($letter){
     let found = false;
@@ -68,6 +95,7 @@ function input($letter){
     $("#"+$letter).prop("disabled", "true");
 
     if(found==false){
+        score = 0;
         mistakes++;
     } else {
         toFind -= letterCount;
@@ -83,10 +111,25 @@ function input($letter){
 
     //all letters found
     if(toFind == 0){
+        score += 10;
         $("#hangmanpic").attr("src", "pics/won.png");
         $(".btn-info").prop("disabled", "true");
         $("#hint").hide();
         $("#new").show();
+
+
+        $.ajax({
+            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            type: "POST",
+            data: { username: username, score: score, game: "Hangman" },
+            success: function(response) {
+                console.log("score sent <3");
+            },
+            error: function(xhr, status, error) {
+                console.error("Error sending score :( " + error);
+            }
+        });
+        
     }
 }
 
