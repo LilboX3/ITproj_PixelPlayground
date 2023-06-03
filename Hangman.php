@@ -63,7 +63,7 @@ include_once 'navbar.php';
             </table>
 
             <button class="btn btn-danger" id="hint" onclick="getHint()">Click for a hint!</button>
-            <button class="btn btn-dark" id ="new" onclick="location.reload()" style="display:none; border-radius: 0%;">Play again</button>
+            <button class="btn btn-dark" id="new" onclick="resetGame()" style="display:none; border-radius: 0%;">Play again</button>
             </div>
 
             <div class="col-2"></div> 
@@ -71,5 +71,18 @@ include_once 'navbar.php';
     </div>
 
 <script src="Hangman/hangman.js"></script>
+<script>
+    function resetGame() {
+        $("#hangmanpic").attr("src", "pics/white.png");
+        $(".displayword table tr").empty();
+        $(".btn-info").prop("disabled", false);
+        $("#hint").show();
+        $("#new").hide();
+        mistakes = 0;
+        toFind = 0;
+        setupGame();
+        wordLines();
+    }
+</script>
 </body>
 </html>
