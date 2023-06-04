@@ -1,4 +1,5 @@
 //Crazy game mode:
+var username = "";
 document.getElementById('crazymode').onclick = function() {
     crazyresetGame();
     document.getElementById("ponghead").innerHTML = 'Crazy Pong';
@@ -86,6 +87,7 @@ crazygameStart();
 
 //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
 function crazygameStart(){
+    
     crazycreateBalls();
     crazynextTick();
 }
@@ -229,11 +231,69 @@ function crazycheckCollision(){
     if(crazyBall3Y >= crazyHeight - crazyRadius){
         crazyBall3YDirection *= -1; //Richtung "negieren"
     }
+    
+    function isLoggedIn() {
+        $.ajax({
+            url: "./src/check_login.php",
+            type: "GET",
+            success: function(response) {
+                if (response === "true") {
+                    console.log("User is logged in");
+                    // User is logged in, continue with the game
+                } else {
+                    console.log("User is not logged in");
+                        //pop up to ask for name if the player isnt logged in
+                    username = prompt("Please choose a name to be remembered by King! :");
+                    if (username == null || username.trim() == "") {
+                        console.log("Username is required.");
+                        return;
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error checking login status: " + error);
+            }
+        });
+    }
 
+    function secondPlayer() {
+        $.ajax({
+            url: "./src/check_login.php",
+            type: "GET",
+            success: function(response) {
+                if (response === "true") {
+                    console.log("User is logged in");
+                    // User is logged in, continue with the game
+                } else {
+                    console.log("User is not logged in");
+                        //pop up to ask for name if the player isnt logged in
+                    username2 = prompt("Please choose a name for the 2nd to be remembered by! :");
+                    if (username2 == null || username2.trim() == "") {
+                        console.log("Username is required.");
+                        return;
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error checking login status: " + error);
+            }
+        });
+    }
     //LINKS Tor!!! player2 bekommt punkt 
     if(crazyBallX <= 0){
         if(!point1){
         crazyPlayer2Score +=1;
+        $.ajax({
+            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            type: "POST",
+            data: { username: username2, score: crazyPlayer2Score, game: "Crazy Pong" },
+            success: function(response) {
+                console.log("score sent <3");
+            },
+            error: function(xhr, status, error) {
+                console.error("Error sending score :( " + error);
+            }
+        });
         point1 = true;
         crazyBallXDirection = 0;
         crazyBallYDirection = 0;
@@ -244,6 +304,17 @@ function crazycheckCollision(){
     if(crazyBallX >= crazyWidth){
         if(!point1){
             crazyPlayer1Score +=1;
+            $.ajax({
+                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                type: "POST",
+                data: { username: username, score: crazyPlayer1Score, game: "Crazy Pong" },
+                success: function(response) {
+                    console.log("score sent <3");
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error sending score :( " + error);
+                }
+            });
             point1 = true;
             crazyBallXDirection = 0;
             crazyBallYDirection = 0;
