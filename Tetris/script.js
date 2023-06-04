@@ -5,6 +5,7 @@ let gBarrayWidth = 12; // x
 let startX = 4;
 let startY = 0;
 let score = 0;
+var username = "";
 let level = 1;
 let winOrLose = "Playing";
 let tetrisLogo;
@@ -65,7 +66,7 @@ function SetupCanvas() {
     //tetris logo
     tetrisLogo = new Image(391, 128);  //161, 54
     tetrisLogo.onload = DrawTetrisLogo;
-    tetrisLogo.src = "pics/tetrislogo.png";
+    tetrisLogo.src = "Tetris/pics/tetrislogo.png";
 
     //sccore
     ctx.fillStyle = 'black';
@@ -121,8 +122,32 @@ function DrawTetromino() {
         ctx.fillRect(coorX, coorY, 21, 21);
     }
 }
-
+isLoggedIn();
+function isLoggedIn() {
+    $.ajax({
+        url: "./src/check_login.php",
+        type: "GET",
+        success: function(response) {
+            if (response === "true") {
+                console.log("User is logged in");
+                // User is logged in, continue with the game
+            } else {
+                console.log("User is not logged in");
+                    //pop up to ask for name if the player isnt logged in
+                username = prompt("Please choose a name to be remembered by King! :");
+                if (username == null || username.trim() == "") {
+                    console.log("Username is required.");
+                    return;
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error checking login status: " + error);
+        }
+    });
+}
 function HandleKeyPress(key) {
+    isLoggedIn();
     if(winOrLose != "Game Over") {
         if(key.keyCode === 65) {        // A key
             direction = DIRECTION.LEFT;
@@ -306,6 +331,17 @@ function CheckForCompletedRows(){
     }
     if(rowsToDelete > 0) {
         score += 10;
+        $.ajax({
+            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            type: "POST",
+            data: { username: username, score: score, game: "Tetris" },
+            success: function(response) {
+                console.log("score sent <3");
+            },
+            error: function(xhr, status, error) {
+                console.error("Error sending score :( " + error);
+            }
+        });
         ctx.fillStyle = 'white';    //score
         ctx.fillRect(310, 242, 140, 19);
         ctx.fillStyle = 'black';
