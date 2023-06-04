@@ -2,7 +2,7 @@
 
 var seconds = 0;
 var timer = document.getElementById('time');
-const images = [];
+var images = [];
 images.length = 16;
 var pick = 0;
 var tries = 0;
@@ -10,6 +10,10 @@ var toCompare;
 var clicked = 0;
 var score = 0;
 var username = "";
+
+document.getElementById('restartMemory').onclick = function() {
+    location.reload(); //is simpler als alles zu leeren und wieder aufzubauen ig
+}
 
 fillArray(images);
 

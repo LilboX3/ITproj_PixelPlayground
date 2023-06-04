@@ -37,6 +37,12 @@ include_once 'navbar.php';
     </div>
    </div>
 
+   <div class="infobox">
+    <div id="restartMemory" class="labels">
+        <button>Restart</button>
+    </div>
+    </div>
+
   </div>
 
    <div class="col-1"> 
