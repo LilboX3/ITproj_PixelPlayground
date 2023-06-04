@@ -3,7 +3,7 @@ include_once 'navbar.php';
 ?>
 
     <title>Tetris</title>
-    <link rel="stylesheet" href="tetris.css">
+    <link rel="stylesheet" href="Tetris/tetris.css">
     <link rel="stylesheet" href="Tetris/prstartk.ttf">
 </head>
 <body class="background">
