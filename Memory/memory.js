@@ -9,6 +9,7 @@ var tries = 0;
 var toCompare;
 var clicked = 0;
 var score = 0;
+var username = "";
 
 fillArray(images);
 
@@ -55,6 +56,31 @@ function shuffleArray(){
         images[i] = temp;
     }
     createHTML();
+    isLoggedIn();
+}
+
+function isLoggedIn() {
+    $.ajax({
+        url: "./src/check_login.php",
+        type: "GET",
+        success: function(response) {
+            if (response === "true") {
+                console.log("User is logged in");
+                // User is logged in, continue with the game
+            } else {
+                console.log("User is not logged in");
+                    //pop up to ask for name if the player isnt logged in
+                username = prompt("Please choose a name to be remembered by King! :");
+                if (username == null || username.trim() == "") {
+                    console.log("Username is required.");
+                    return;
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error checking login status: " + error);
+        }
+    });
 }
 
 function createHTML(){
@@ -77,7 +103,18 @@ function found(img){
     document.getElementById(img.id).removeAttribute("onClick");
     toCompare = null;
     clicked = 0;
-    score += 2;
+    score += 10;
+    $.ajax({
+        url: "/ITproj_PixelPlayground-master/Backend/db.php",
+        type: "POST",
+        data: { username: username, score: score, game: "Memory" },
+        success: function(response) {
+            console.log("score sent <3");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error sending score :( " + error);
+        }
+    });
 }
 
 function hide(img){
