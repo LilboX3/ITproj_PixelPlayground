@@ -13,10 +13,12 @@ let timer = null;
 let score = 0;
 let num = 3;
 let time = 20;
+var username = "";
 
 // initiale Game
 function initGame() {
     // random word
+    isLoggedIn();
     let randomIndex = Math.floor(Math.random() * words.length);
     let randomObj = words[randomIndex];
     word = randomObj.word.toLowerCase();
@@ -47,7 +49,29 @@ function initGame() {
 }
 
 initGame();
-
+function isLoggedIn() {
+    $.ajax({
+        url: "./src/check_login.php",
+        type: "GET",
+        success: function(response) {
+            if (response === "true") {
+                console.log("User is logged in");
+                // User is logged in, continue with the game
+            } else {
+                console.log("User is not logged in");
+                    //pop up to ask for name if the player isnt logged in
+                username = prompt("Please choose a name to be remembered by King! :");
+                if (username == null || username.trim() == "") {
+                    console.log("Username is required.");
+                    return;
+                }
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error checking login status: " + error);
+        }
+    });
+}
 // Refresh Game
 refreshButton.addEventListener("click", () => loseGame());
 
@@ -81,7 +105,18 @@ function loseGame(msg) {
 
 // win game
 function winGame(msg) {
-    score++;
+    score =+ 10;
+    $.ajax({
+        url: "/ITproj_PixelPlayground-master/Backend/db.php",
+        type: "POST",
+        data: { username: username, score: score, game: "Scramble" },
+        success: function(response) {
+            console.log("score sent <3");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error sending score :( " + error);
+        }
+    });
     refreshGame(msg);
 }
 
