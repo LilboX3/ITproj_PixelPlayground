@@ -1,9 +1,13 @@
+var username = "";
+
 const gameBoard = document.querySelector("#gameBoard");
+
 //verstecken, bis game Mode ausgewählt wurde
 document.querySelector("#gameContainer").style.display = 'none';
 document.querySelector("#crazyContainer").style.display = 'none';
 document.querySelector("#illusionContainer").style.display = 'none';
-
+isLoggedIn();
+secondPlayer();
 
 
 //Normalmode 
@@ -89,6 +93,7 @@ document.getElementById('normalmode').onclick = function() {
 
     //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
     function gameStart(){
+        
         createBall();
         nextTick();
     }
@@ -161,6 +166,54 @@ document.getElementById('normalmode').onclick = function() {
         ctx.fill(); //ball mit Farbe füllen
     }
 
+    function isLoggedIn() {
+        $.ajax({
+            url: "./src/check_login.php",
+            type: "GET",
+            success: function(response) {
+                if (response === "true") {
+                    console.log("User is logged in");
+                    // User is logged in, continue with the game
+                } else {
+                    console.log("User is not logged in");
+                        //pop up to ask for name if the player isnt logged in
+                    username = prompt("Please choose a name to be remembered by King! :");
+                    if (username == null || username.trim() == "") {
+                        console.log("Username is required.");
+                        return;
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error checking login status: " + error);
+            }
+        });
+    }
+
+    function secondPlayer() {
+        $.ajax({
+            url: "./src/check_login.php",
+            type: "GET",
+            success: function(response) {
+                if (response === "true") {
+                    console.log("User is logged in");
+                    // User is logged in, continue with the game
+                } else {
+                    console.log("User is not logged in");
+                        //pop up to ask for name if the player isnt logged in
+                    username2 = prompt("Please choose a name for the 2nd to be remembered by! :");
+                    if (username2 == null || username2.trim() == "") {
+                        console.log("Username is required.");
+                        return;
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error checking login status: " + error);
+            }
+        });
+    }
+
     function checkCollision(){
         //+radius, da y koordinate in zentrum des kreis ist
         if(ballY <= 0 + ballRadius){
@@ -173,6 +226,17 @@ document.getElementById('normalmode').onclick = function() {
         //LINKS Tor!!! player2 bekommt punkt 
         if(ballX <= 0){
             player2Score +=1;
+            $.ajax({
+                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                type: "POST",
+                data: { username: username2, score: player2Score, game: "Pong" },
+                success: function(response) {
+                    console.log("score sent <3");
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error sending score :( " + error);
+                }
+            });
             updateScore();
             createBall(); //neuen Ball erstellen
             return;
@@ -181,6 +245,17 @@ document.getElementById('normalmode').onclick = function() {
         //RECHTS Tor!!! player1 bekommt punkt
         if(ballX >= gameWidth){
             player1Score +=1;
+            $.ajax({
+                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                type: "POST",
+                data: { username: username, score: player1Score, game: "Pong" },
+                success: function(response) {
+                    console.log("score sent <3");
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error sending score :( " + error);
+                }
+            });
             updateScore();
             createBall();
             return;
