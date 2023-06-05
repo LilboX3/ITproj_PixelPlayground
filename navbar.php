@@ -30,7 +30,6 @@ session_start();
                 <a class="active" href="Homepage.php">Pixel Playground</a>
                 <a href="login.php">Login</a>
                 <a href="logout.php">Logout</a>
-                <a href="signup.php">Sign Up</a>
                 <a href="Hangman.php">Hangman</a>
                 <a href="Snake.php">Snake</a>
                 <a href="Pong.php">Pong</a>
