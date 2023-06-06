@@ -18,9 +18,11 @@ include_once 'navbar.php';
         <div class="player2 textstyle">
             player2 Name
         </div>
-        <div class="entername" id="hangmanbox">
+        <div class="entername" id="pongbox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+                <input type="text" style="margin-bottom:1%;"id="pongname" placeholder="olayer one"> 
+                <input type="text" id="pongname2" placeholder="player two"> 
+                <button id="savepong">Save</button>
             </div>
             <div id="gameMode">
                 <button id="normalmode">Play Normal game mode - for beginners</button> <br> <br>

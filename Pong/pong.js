@@ -6,9 +6,6 @@ const gameBoard = document.querySelector("#gameBoard");
 document.querySelector("#gameContainer").style.display = 'none';
 document.querySelector("#crazyContainer").style.display = 'none';
 document.querySelector("#illusionContainer").style.display = 'none';
-isLoggedIn();
-secondPlayer();
-
 
 //Normalmode 
 document.getElementById('normalmode').onclick = function() {
@@ -166,7 +163,14 @@ document.getElementById('normalmode').onclick = function() {
         ctx.fill(); //ball mit Farbe füllen
     }
 
-    function isLoggedIn() {
+    //Fenster um Namen einzugeben
+document.getElementById("savepong").onclick = function(){
+    isLoggedIn(document.querySelector("#pongname").value);
+    secondPlayer(document.querySelector("#pongname2").value);
+    document.querySelector("#pongbox").style.display = 'none';
+}
+
+    function isLoggedIn($pongname1) {
         $.ajax({
             url: "./src/check_login.php",
             type: "GET",
@@ -177,7 +181,7 @@ document.getElementById('normalmode').onclick = function() {
                 } else {
                     console.log("User is not logged in");
                         //pop up to ask for name if the player isnt logged in
-                    username = prompt("Please choose a name to be remembered by King! :");
+                    username = $pongname1;
                     if (username == null || username.trim() == "") {
                         console.log("Username is required.");
                         return;
@@ -190,7 +194,7 @@ document.getElementById('normalmode').onclick = function() {
         });
     }
 
-    function secondPlayer() {
+    function secondPlayer($pongname2) {
         $.ajax({
             url: "./src/check_login.php",
             type: "GET",
@@ -201,7 +205,7 @@ document.getElementById('normalmode').onclick = function() {
                 } else {
                     console.log("User is not logged in");
                         //pop up to ask for name if the player isnt logged in
-                    username2 = prompt("Please choose a name for the 2nd to be remembered by! :");
+                    username2 = $pongname2;
                     if (username2 == null || username2.trim() == "") {
                         console.log("Username is required.");
                         return;

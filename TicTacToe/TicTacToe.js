@@ -1,6 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-    isLoggedIn();
-    secondPlayer();
     const tiles = Array.from(document.querySelectorAll(".tile"));
     const playerDisplay = document.querySelector(".display-player");
     const resetButton = document.querySelector("#reset");
@@ -52,7 +50,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
         if (!board.includes("")) announce(TIE);
     }
-    function isLoggedIn() {
+
+    document.getElementById("savetictactoe").onclick = function(){
+        isLoggedIn(document.querySelector("#tictactoename").value);
+        secondPlayer(document.querySelector("#tictactoename2").value);
+        document.querySelector("#tictactoebox").style.display = 'none';
+    }
+
+    function isLoggedIn($toename) {
         $.ajax({
             url: "./src/check_login.php",
             type: "GET",
@@ -63,7 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 } else {
                     console.log("User is not logged in");
                         //pop up to ask for name if the player isnt logged in
-                    username = prompt("Please choose a name Player O ! :");
+                    username = $toename;
                     if (username == null || username.trim() == "") {
                         console.log("Username is required.");
                         return;
@@ -76,7 +81,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    function secondPlayer() {
+    function secondPlayer($toename2) {
         $.ajax({
             url: "./src/check_login.php",
             type: "GET",
@@ -87,7 +92,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 } else {
                     console.log("User is not logged in");
                         //pop up to ask for name if the player isnt logged in
-                    username2 = prompt("Please choose a name for Player X ! :");
+                    username2 = $toename2;
                     if (username2 == null || username2.trim() == "") {
                         console.log("Username is required.");
                         return;

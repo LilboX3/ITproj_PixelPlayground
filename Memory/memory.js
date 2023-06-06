@@ -61,10 +61,14 @@ function shuffleArray(){
         images[i] = temp;
     }
     createHTML();
-    isLoggedIn();
 }
 
-function isLoggedIn() {
+document.getElementById("savememory").onclick = function(){
+    isLoggedIn(document.querySelector("#memoryname").value);
+    document.querySelector("#memorybox").style.display = 'none';
+}
+
+function isLoggedIn($memoryname) {
     $.ajax({
         url: "./src/check_login.php",
         type: "GET",
@@ -75,7 +79,8 @@ function isLoggedIn() {
             } else {
                 console.log("User is not logged in");
                     //pop up to ask for name if the player isnt logged in
-                username = prompt("Please choose a name to be remembered by King! :");
+                username = $memoryname;
+                    console.log("THEUSERNAME IS:::"+username);
                 if (username == null || username.trim() == "") {
                     console.log("Username is required.");
                     return;

@@ -56,9 +56,10 @@ function wordLines(){
 }
 
 document.getElementById("savehangman").onclick = function(){
-    isLoggedIn(document.getElementById("hangmanname").innerHTML);
+    isLoggedIn(document.querySelector("#hangmanname").value);
     document.querySelector("#hangmanbox").style.display = 'none';
 }
+
 function isLoggedIn($name) {
     $.ajax({
         url: "./src/check_login.php",

@@ -34,7 +34,6 @@ function gameStart(){
     scoreTxt.textContent = score;
     createFood();
     drawFood();
-    isLoggedIn();
     nextTick();
 };
 
@@ -108,7 +107,13 @@ function drawSnake(){
         ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
     })
 };
-function isLoggedIn() {
+
+document.getElementById("savesnake").onclick = function(){
+    isLoggedIn(document.querySelector("#snakename").value);
+    document.querySelector("#snakebox").style.display = 'none';
+}
+
+function isLoggedIn($snakename) {
     $.ajax({
         url: "./src/check_login.php",
         type: "GET",
@@ -119,7 +124,7 @@ function isLoggedIn() {
             } else {
                 console.log("User is not logged in");
                     //pop up to ask for name if the player isnt logged in
-                username = prompt("Please choose a name to be remembered by King! :");
+                username = $snakename;
                 if (username == null || username.trim() == "") {
                     console.log("Username is required.");
                     return;

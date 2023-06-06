@@ -9,11 +9,11 @@ include_once 'navbar.php';
 
 <body class="background">
     <div class="container">
-    <div class="entername" id="hangmanbox">
+    <div class="entername" id="scramblebox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+                <input type="text" id="scramblename" placeholder="be creative!"> <button id="savescramble">Save</button>
         </div>
-        
+
         <header>
             <h2>Word Scramble Game</h2>
             <h5 class="num">Number of plays: <span></span></h5>
