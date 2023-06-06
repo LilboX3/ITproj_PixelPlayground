@@ -14,8 +14,7 @@ console.log("words and hints array same length: " + (words.length==hints.length)
 
 $(document).ready(
    setupGame(),
-   wordLines(),
-   isLoggedIn(),
+   wordLines()
 );
 
 //button pressed to show a hint
@@ -55,7 +54,12 @@ function wordLines(){
         }
     }
 }
-function isLoggedIn() {
+
+document.getElementById("savehangman").onclick = function(){
+    isLoggedIn(document.getElementById("hangmanname").innerHTML);
+    document.querySelector("#hangmanbox").style.display = 'none';
+}
+function isLoggedIn($name) {
     $.ajax({
         url: "./src/check_login.php",
         type: "GET",
@@ -65,8 +69,7 @@ function isLoggedIn() {
                 // User is logged in, continue with the game
             } else {
                 console.log("User is not logged in");
-                    //pop up to ask for name if the player isnt logged in
-                username = prompt("Please choose a name to be remembered by King! :");
+                username = $name;
                 if (username == null || username.trim() == "") {
                     console.log("Username is required.");
                     return;
@@ -78,6 +81,7 @@ function isLoggedIn() {
         }
     });
 }
+
 //when a letter button is clicked, check if its right or not
 function input($letter){
     let found = false;

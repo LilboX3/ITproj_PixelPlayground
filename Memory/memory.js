@@ -13,6 +13,7 @@ var username = "";
 
 document.getElementById('restartMemory').onclick = function() {
     location.reload(); //is simpler als alles zu leeren und wieder aufzubauen ig
+    
 }
 
 fillArray(images);

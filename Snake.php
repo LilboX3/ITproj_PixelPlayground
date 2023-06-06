@@ -9,6 +9,12 @@ include_once 'navbar.php';
 </head>
 <body class="background">
     <div class="container">
+        
+        <div class="entername" id="hangmanbox">
+                    <div style="font-size:small;">Enter your name to save your score !</div>
+                    <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+        </div>
+
         <div class="gameField">
         <h1>SNAKE</h1>
         <div id="game">

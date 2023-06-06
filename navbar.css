@@ -8,6 +8,15 @@
   overflow: hidden;
 }
 
+.entername{
+  z-index: 999;
+  background-color: plum;
+  text-align: center;
+  padding:1%;
+  border-radius: 2%;
+  position: absolute;
+}
+
 .topnav {
   background-color: darkblue;
   overflow: hidden;

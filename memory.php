@@ -19,7 +19,10 @@ include_once 'navbar.php';
     
     </div>
   <div class="col-10">
-
+  <div class="entername" id="hangmanbox">
+                <div style="font-size:small;">Enter your name to save your score !</div>
+                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+    </div>
  
  <div id = "spielbereich">
     

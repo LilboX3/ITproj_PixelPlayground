@@ -11,6 +11,11 @@ include_once 'navbar.php';
 <body class="background">
     <main>
         <div class="container gameField">
+        <div class="entername" id="hangmanbox">
+                <div style="font-size:small;">Enter your name to save your score !</div>
+                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+        </div>
+        
         <section>
             <h1>Tic Tac Toe</h1>
         </section>

@@ -14,7 +14,12 @@ include_once 'navbar.php';
 
             <div class="col-8">
             <h1 style="margin-bottom:2%;">HANGMAN GAME</h1>
-            
+
+            <div class="entername" id="hangmanbox">
+                <div style="font-size:small;">Enter your name to save your score !</div>
+                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+            </div>
+
             <img id="hangmanpic" class="responsive" src="pics/white.png" alt="hangman">
             <div class="displayword">
                 <table>
