@@ -55,61 +55,73 @@ function SetupCanvas() {
     ctx = canvas.getContext('2d');
     canvas.width = 936;
     canvas.height = 956;
-
+  
     ctx.scale(2, 2);
-    ctx.fillStyle = 'white';
+  
+    // Set the entire canvas to red
+    ctx.fillStyle = '#433998';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.strokeStyle = 'black';
-    ctx.strokeRect(8, 8, 280, 462);
-
-    //tetris logo
-    tetrisLogo = new Image(391, 128);  //161, 54
-    tetrisLogo.onload = DrawTetrisLogo;
-    tetrisLogo.src = "Tetris/pics/tetrislogo.png";
-
-    //sccore
-    ctx.fillStyle = 'black';
-    ctx.font = '21px'; //Arial
-    ctx.fillText("SCORE", 300, 98);
-
-    //score rectangle
+  
+    // Set the playing field to white
+    ctx.fillStyle = 'white';
+    ctx.fillRect(8, 8, 280, 462);
+  
+    // score
+    ctx.fillStyle = '#433998'; // Blue color for the score rectangle
+    ctx.fillRect(300, 107, 161, 24);
+  
+    ctx.strokeStyle = 'black'; // Stroke color for the score rectangle
     ctx.strokeRect(300, 107, 161, 24);
-
+  
+    ctx.fillStyle = 'black'; // Black font color for the score text
+    ctx.fillText("SCORE", 300, 98);
     ctx.fillText(score.toString(), 310, 127);
-    
-    //level
-    ctx.fillText("LEVEL", 300, 157);
-
-    //level rectangle
+  
+    // level
+    ctx.fillStyle = '#433998'; // Green color for the level rectangle
+    ctx.fillRect(300, 171, 161, 24);
+  
+    ctx.strokeStyle = 'black'; // Stroke color for the level rectangle
     ctx.strokeRect(300, 171, 161, 24);
+  
+    ctx.fillStyle = 'black'; // Black font color for the level text
+    ctx.fillText("LEVEL", 300, 157);
     ctx.fillText(level.toString(), 310, 190);
-
-    //win or lose
-    ctx.fillText("WIN/LOSE", 300, 221);
-    ctx.fillText(winOrLose, 310, 261);
-    ctx.strokeRect(300, 232, 161, 95);
-
-    //controls
-    ctx.fillText("CONTROLS", 300, 354);
+  
+    // Show "GAME OVER" if the player loses
+    if (winOrLose === "LOSE") {
+        ctx.fillStyle = '#433998'; // Purple color for the game over background
+        ctx.fillRect(300, 232, 161, 95);
+        
+        ctx.fillStyle = 'black'; // Black font color for the game over text
+        ctx.font = 'bold 24px Arial';
+        ctx.fillText("GAME OVER", 310, 261);
+      }
+  
+    // controls
+    ctx.fillStyle = '#433998'; // Purple color for the controls rectangle
+    ctx.fillRect(300, 366, 161, 104);
+  
+    ctx.strokeStyle = 'black'; // Stroke color for the controls rectangle
     ctx.strokeRect(300, 366, 161, 104);
+  
+    ctx.fillStyle = 'black'; // Black font color for the controls text
     ctx.font = '19px Arial';
     ctx.fillText("A : Move Left", 310, 388);
     ctx.fillText("D : Move Right", 310, 413);
     ctx.fillText("S : Move Down", 310, 438);
     ctx.fillText("E : Rotate Right", 310, 463);
-
+  
     document.addEventListener('keydown', HandleKeyPress);
     CreateTetrominos();
     CreateTetromino();
-
+  
     CreateCoordArray();
     DrawTetromino();
-}
+  }
+  
 
-function DrawTetrisLogo() {
-    ctx.drawImage(tetrisLogo, 300, 8, 391, 128); //300, 8, 161, 54
-}
+
 
 function DrawTetromino() {
     for(let i = 0; i < curTetromino.length; i++) {
@@ -147,7 +159,6 @@ function isLoggedIn() {
     });
 }
 function HandleKeyPress(key) {
-    isLoggedIn();
     if(winOrLose != "Game Over") {
         if(key.keyCode === 65) {        // A key
             direction = DIRECTION.LEFT;
@@ -342,7 +353,12 @@ function CheckForCompletedRows(){
                 console.error("Error sending score :( " + error);
             }
         });
-        ctx.fillStyle = 'white';    //score
+
+          // Clear the area where the score is displayed
+        ctx.fillStyle = '#433998'; // Background color
+        ctx.fillRect(300, 107, 161, 24);
+
+        ctx.fillStyle = '#433998';    //score
         ctx.fillRect(310, 242, 140, 19);
         ctx.fillStyle = 'black';
         ctx.fillText(score.toString(), 310, 127); //261

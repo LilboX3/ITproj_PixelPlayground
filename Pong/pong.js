@@ -291,8 +291,8 @@ document.getElementById('normalmode').onclick = function() {
         const paddle1Up = 87;
         const paddle1Down = 83;
 
-        const paddle2Up = 38;
-        const paddle2Down = 40;
+        const paddle2Up = 73;
+        const paddle2Down = 75;
         
         //je nach gepressten key dieses paddle oben/unten bewegen (man kann nur 1 gedrückt halten :/)
         switch(keyPressed){

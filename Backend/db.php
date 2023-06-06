@@ -45,7 +45,7 @@ if (!empty($username)) {
         $row = $result->fetch_assoc();
         $previousScore = $row['score'];
         
-        if ($score <= $previousScore) {
+        if ($score <= $previousScore) { 
             // New score is not higher, do not save it
             echo "Score not saved. User already has a higher score for this game.";
             exit();

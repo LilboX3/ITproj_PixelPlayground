@@ -14,8 +14,11 @@ include_once 'navbar.php';
     </div>
 
         <div class="gameField">
-            <h1>Tetris</h1>
-            <canvas id="tetris"></canvas>
+        <div id="logo-container">
+            <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
+        </div>
+        <canvas id="tetris"></canvas>
+         <script src="tetris.js"></script>
         </div>
         
 
