@@ -167,6 +167,8 @@ document.getElementById('normalmode').onclick = function() {
 document.getElementById("savepong").onclick = function(){
     isLoggedIn(document.querySelector("#pongname").value);
     secondPlayer(document.querySelector("#pongname2").value);
+    document.getElementById("pongplayer1").innerHTML = document.querySelector("#pongname").value;
+    document.getElementById("pongplayer2").innerHTML = document.querySelector("#pongname2").value;
     document.querySelector("#pongbox").style.display = 'none';
 }
 

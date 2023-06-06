@@ -12,10 +12,10 @@ include_once 'navbar.php';
 
         <div class="col-8" style="text-align:center;">
         <h1 id="ponghead" class="textstyle" >Play Pong</h1>
-        <div class="player1 textstyle">
+        <div class="player1 textstyle" id="pongplayer1">
             player1 Name
         </div>
-        <div class="player2 textstyle">
+        <div class="player2 textstyle" id="pongplayer2">
             player2 Name
         </div>
         <div class="entername" id="pongbox">
