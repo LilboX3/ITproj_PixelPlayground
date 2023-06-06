@@ -15,6 +15,14 @@
   border-radius: 2%;
   position: absolute;
   text-align: center;
+  width:400px;
+  height:150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.entername button{
+  margin-top: 2%;
 }
 
 .topnav {
