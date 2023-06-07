@@ -28,7 +28,7 @@ include_once 'navbar.php';
                 <p class="time">Time Left: <span><b></b>s</span></p>
             </div>
 
-            <input type="text" class="placeHolder" placeholder="Enter a valid word">
+            <input type="text" class="placeHolder" id="input" placeholder="Enter a valid word">
 
             <div class="btn">
                 <button class="refresh-word">Refresh Word</button>
