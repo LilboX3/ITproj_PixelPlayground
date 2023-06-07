@@ -64,6 +64,7 @@ if (!empty($username)) {
         if ($conn->query($insertScoreQuery) === FALSE) {
             echo "Error inserting score: " . $conn->error;
             exit();
+            //ERROR HERE
         }
     }
 

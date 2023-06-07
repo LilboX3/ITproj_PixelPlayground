@@ -27,7 +27,7 @@ let snake = [
 window.addEventListener("keydown", changeDirection);
 reset.addEventListener("click", resetGame);
 
-gameStart();
+
 
 function gameStart(){
     running = true;
@@ -111,6 +111,7 @@ function drawSnake(){
 document.getElementById("savesnake").onclick = function(){
     isLoggedIn(document.querySelector("#snakename").value);
     document.querySelector("#snakebox").style.display = 'none';
+    gameStart();
 }
 
 function isLoggedIn($snakename) {
