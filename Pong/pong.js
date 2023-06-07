@@ -24,7 +24,7 @@ document.getElementById('normalmode').onclick = function() {
 
     /* Farben alle änderbar */
     //Hintergrundfarbe
-    const boardBackground = "blue";
+    const boardBackground = "black";
     //Spieler 1 Farbe
     const paddle1Color = "lightblue";
     //Spieler 2 Farbe
