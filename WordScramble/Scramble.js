@@ -122,7 +122,7 @@ function loseGame(msg) {
 function winGame(msg) {
     score = + 10;
     $.ajax({
-        url: "/ITproj_PixelPlayground-master/Backend/highscore.php",
+        url: "/ITproj_PixelPlayground-master/src/highscore.php",
         type: "POST",
         data: { username: username, score: score, game: "Scramble" },
         success: function (response) {
