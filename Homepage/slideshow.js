@@ -3,7 +3,7 @@ showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slideIndex += n, true);
 }
 
 // Thumbnail image controls
@@ -11,7 +11,7 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) {
+function showSlides(n, f) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
@@ -25,4 +25,11 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
+
+  if(f!=true){
+    setTimeout(function(){
+      console.log("Changing slide");
+      showSlides(slideIndex = slideIndex+1)
+    }, 5000);
+  }
 }
