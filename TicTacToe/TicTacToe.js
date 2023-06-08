@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
                 scoreO += 10;
                 $.ajax({
-                    url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                    url: "/ITproj_PixelPlayground-master/Backend/highscore.php",
                     type: "POST",
                     data: { username: username, score: scoreO, game: "Tic_Tac_Toe" },
                     success: function (response) {
@@ -138,7 +138,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
                 scoreX += 10;
                 $.ajax({
-                    url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                    url: "/ITproj_PixelPlayground-master/Backend/highscore.php",
                     type: "POST",
                     data: { username: username2, score: scoreX, game: "Tic_Tac_Toe" },
                     success: function (response) {
