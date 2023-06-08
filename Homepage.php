@@ -16,8 +16,12 @@ include_once 'navbar.php';
     <!-- Slideshow container -->
 
         <div class="col-8" style="color:white;">
+
+        <div style="background-color:#060320;">
           <h1>Welcome to Pixel Playground!</h1>
           <h5>Click an image to start playing</h5>
+        </div>
+
         <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
