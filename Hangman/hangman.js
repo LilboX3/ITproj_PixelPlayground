@@ -124,7 +124,7 @@ function input($letter){
 
 
         $.ajax({
-            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username, score: score, game: "Hangman" },
             success: function(response) {
