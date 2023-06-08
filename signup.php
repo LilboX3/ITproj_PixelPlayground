@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 
     if (!empty($username) && !empty($password) && !empty($confirm_password)) {
         if ($password === $confirm_password) {
-            $query = "SELECT * FROM $table WHERE username = ?";
+            $query = "SELECT * FROM users WHERE username = ?";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, 's', $username);
             mysqli_stmt_execute($stmt);
@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
             if (mysqli_num_rows($result) == 0) {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-                $query = "INSERT INTO $table (username, password) VALUES (?, ?)";
+                $query = "INSERT INTO users (username, password) VALUES (?, ?)";
                 $stmt = mysqli_prepare($conn, $query);
                 mysqli_stmt_bind_param($stmt, 'ss', $username, $hashed_password);
                 mysqli_stmt_execute($stmt);
