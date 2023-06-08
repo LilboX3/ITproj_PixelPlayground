@@ -309,8 +309,8 @@ function savePlayer2(){
 }
 
 function savePlayers(){
-    isLoggedIn(document.querySelector("#tictactoename").value);
-    secondPlayer(document.querySelector("#tictactoename2").value);
+    username = document.querySelector("#tictactoename").value ;
+    username2 = document.querySelector("#tictactoename2").value;
     document.querySelector("#tictactoebox").style.display = 'none';
 }
 
