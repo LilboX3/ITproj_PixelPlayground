@@ -28,8 +28,14 @@ session_start();
             </div>
             <div>              
                 <a class="active" href="Homepage.php">Pixel Playground</a>
+                <?php if(!isset($_SESSION['username'])){?>
                 <a href="login.php">Login</a>
+                <?php } else {?>
+                <a style="color:white;">Logged in as <?php $_SESSION['username']?>!</a>
+                <?php } ?>
+                <?php if(isset($_SESSION['username'])){?>
                 <a href="logout.php">Logout</a>
+                <?php }?>
                 <a href="Hangman.php">Hangman</a>
                 <a href="Snake.php">Snake</a>
                 <a href="Pong.php">Pong</a>

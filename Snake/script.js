@@ -80,7 +80,7 @@ function moveSnake(){
     if(snake[0].x == foodX && snake[0].y == foodY){
         score+=1;
         
-        $.ajax({
+        $.ajax({    
             url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username, score: score, game: "Snake" },
