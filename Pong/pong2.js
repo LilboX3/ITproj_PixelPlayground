@@ -284,7 +284,7 @@ function crazycheckCollision(){
         if(!point1){
         crazyPlayer2Score +=1;
         $.ajax({
-            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username2, score: crazyPlayer2Score, game: "Crazy Pong" },
             success: function(response) {
@@ -305,7 +305,7 @@ function crazycheckCollision(){
         if(!point1){
             crazyPlayer1Score +=1;
             $.ajax({
-                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
                 data: { username: username, score: crazyPlayer1Score, game: "Crazy Pong" },
                 success: function(response) {
