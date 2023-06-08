@@ -19,10 +19,12 @@ include_once 'navbar.php';
     
     </div>
   <div class="col-10">
+  <?php if(!isset($_SESSION['username'])){?>
   <div class="entername" id="memorybox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
                 <input type="text" id="memoryname" placeholder="be creative!"> <button id="savememory">Save</button>
   </div>
+  <?php }?>
  
  <div id = "spielbereich">
     

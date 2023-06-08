@@ -8,7 +8,6 @@ var wordIndex;
 var score = 0;
 var username = "";
 
-
 //must be same length
 console.log("words and hints array same length: " + (words.length==hints.length));
 
@@ -68,6 +67,7 @@ function isLoggedIn($name) {
             if (response === "true") {
                 console.log("User is logged in");
                 // User is logged in, continue with the game
+                return;
             } else {
                 console.log("User is not logged in");
                 username = $name;

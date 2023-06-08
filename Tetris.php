@@ -8,10 +8,12 @@ include_once 'navbar.php';
 </head>
 <body class="background">
     <div class="container">
+    <?php if(!isset($_SESSION['username'])){?>
     <div class="entername" id="tetrisbox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
                 <input type="text" id="tetrisname" placeholder="be creative!"> <button id="savetetris">Save</button>
     </div>
+    <?php }?>
 
         <div class="gameField">
         <div id="logo-container">

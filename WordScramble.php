@@ -9,10 +9,12 @@ include_once 'navbar.php';
 
 <body class="background">
     <div class="container">
+    <?php if(!isset($_SESSION['username'])){?>
         <div class="entername" id="scramblebox">
             <div style="font-size:small;">Enter your name to save your score !</div>
             <input type="text" id="scramblename" placeholder="be creative!"> <button id="savescramble">Save</button>
         </div>
+        <?php }?>
 
         <header>
             <h2>Word Scramble Game</h2>

@@ -9,11 +9,12 @@ include_once 'navbar.php';
 </head>
 <body class="background">
     <div class="container">
-
+    <?php if(!isset($_SESSION['username'])){?>
         <div class="entername" id="snakebox">
                     <div style="font-size:small;">Enter your name to save your score !</div>
                     <input type="text" id="snakename" placeholder="be creative!"> <button id="savesnake">Save</button>
         </div>
+    <?php }?>
 
         <div class="gameField">
         <h1>SNAKE</h1>
