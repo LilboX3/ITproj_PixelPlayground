@@ -1,4 +1,4 @@
-var words = ["BANANA", "TELEVISION", "VIDEO GAMES", "LEAGUE", "KEYBOARD", "JAZZ", "BOGUS", "PENGUIN", "TAPESTRY", "BULLET", "CLOCK", "XYLOPHONE", "PNEUMONIA"];
+var words = ["BANANA", "TELEVISION", "VIDEO GAMES", "LEAGUE OF LEGENDS", "KEYBOARD", "JAZZ", "BOGUS", "PENGUIN", "TAPESTRY", "BULLET", "CLOCK", "XYLOPHONE", "PNEUMONIA"];
 var hints = ["a yellow fruit", "what nobody watches anymore", "what people play", "a game that everyone hates", "something you type on", "a style of music", "not genuine",
             "an animal that swims", "a piece of coloured fabric", "gun shoot", "the time", "a funky instrument", "when lungs go ouchie"];
 var currWord;
