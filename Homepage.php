@@ -19,7 +19,7 @@ include_once 'navbar.php';
 
         <div class="col-8" style="color:white;">
 
-        <div style="background-color:#060320;">
+        <div style="background-color:#060320; text-align:center;">
           <h1>Welcome to Pixel Playground!</h1>
           <h5>Click an image to start playing</h5>
         </div>
