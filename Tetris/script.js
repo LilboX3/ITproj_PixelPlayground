@@ -134,13 +134,8 @@ function DrawTetromino() {
         ctx.fillRect(coorX, coorY, 21, 21);
     }
 }
-
-document.getElementById("savetetris").onclick = function(){
-    isLoggedIn(document.querySelector("#tetrisname").value);
-    document.querySelector("#tetrisbox").style.display = 'none';
-}
-
-function isLoggedIn($tetrisname) {
+isLoggedIn();
+function isLoggedIn() {
     $.ajax({
         url: "./src/check_login.php",
         type: "GET",
@@ -151,7 +146,7 @@ function isLoggedIn($tetrisname) {
             } else {
                 console.log("User is not logged in");
                     //pop up to ask for name if the player isnt logged in
-                username = $tetrisname;
+                username = prompt("Please choose a name to be remembered by King! :");
                 if (username == null || username.trim() == "") {
                     console.log("Username is required.");
                     return;
@@ -348,7 +343,7 @@ function CheckForCompletedRows(){
     if(rowsToDelete > 0) {
         score += 10;
         $.ajax({
-            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username, score: score, game: "Tetris" },
             success: function(response) {
