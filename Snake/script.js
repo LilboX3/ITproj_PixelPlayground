@@ -81,7 +81,7 @@ function moveSnake(){
         score+=1;
         
         $.ajax({
-            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username, score: score, game: "Snake" },
             success: function(response) {
