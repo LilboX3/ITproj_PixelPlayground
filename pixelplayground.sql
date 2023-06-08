@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 12:08 AM
+-- Generation Time: Jun 08, 2023 at 07:49 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -44,10 +44,12 @@ INSERT INTO `game` (`id`, `name`, `history`, `highscore`, `playedcount`, `score`
 (1, 'Hangman', NULL, NULL, 0, NULL),
 (2, 'Snake', NULL, NULL, 0, NULL),
 (3, 'Pong', NULL, NULL, 0, NULL),
-(4, 'Tic_Tac_Toe', NULL, NULL, 0, NULL),
-(5, 'Tetris', NULL, NULL, 0, NULL),
-(6, 'Scramble', NULL, NULL, 0, NULL),
-(7, 'Memory', NULL, NULL, 0, NULL);
+(4, 'Crazy Pong', NULL, NULL, 0, NULL),
+(5, 'Illusion Pong', NULL, NULL, 0, NULL),
+(6, 'Tic_Tac_Toe', NULL, NULL, 0, NULL),
+(7, 'Tetris', NULL, NULL, 0, NULL),
+(8, 'Scramble', NULL, NULL, 0, NULL),
+(9, 'Memory', NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,8 @@ CREATE TABLE `highscore` (
 --
 
 INSERT INTO `highscore` (`id`, `game_id`, `user_id`, `score`) VALUES
-(16, 1, 3, 30);
+(43, 3, 5, 15),
+(52, 2, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -100,7 +103,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (2, 'mehdi', '$2y$10$PmhuY4VqkdMgx8cWuve3oeYMwvC6TqBtYWWqx0p0Zz292kA.u.D9S'),
-(3, 'king', ''),
 (5, 'him', '');
 
 -- --------------------------------------------------------
@@ -146,19 +148,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `highscore`
 --
 ALTER TABLE `highscore`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
