@@ -12,7 +12,9 @@ include_once 'navbar.php';
   
     <div class="row">
 
-        <div class="col-2"></div>
+        <div class="col-2">
+          <a href="login.php">Log In now!</a>
+        </div>
     <!-- Slideshow container -->
 
         <div class="col-8" style="color:white;">
