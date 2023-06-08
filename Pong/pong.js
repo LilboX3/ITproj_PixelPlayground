@@ -233,7 +233,7 @@ document.getElementById("savepong").onclick = function(){
         if(ballX <= 0){
             player2Score +=1;
             $.ajax({
-                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
                 data: { username: username2, score: player2Score, game: "Pong" },
                 success: function(response) {
@@ -252,7 +252,7 @@ document.getElementById("savepong").onclick = function(){
         if(ballX >= gameWidth){
             player1Score +=1;
             $.ajax({
-                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
                 data: { username: username, score: player1Score, game: "Pong" },
                 success: function(response) {
