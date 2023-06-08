@@ -1,4 +1,5 @@
-var username = "";
+var username = document.querySelector("#player1name").value;
+var username2 = "";
 
 const gameBoard = document.querySelector("#gameBoard");
 
@@ -170,6 +171,13 @@ document.getElementById("savepong").onclick = function(){
     document.getElementById("pongplayer1").innerHTML = document.querySelector("#pongname").value;
     document.getElementById("pongplayer2").innerHTML = document.querySelector("#pongname2").value;
     document.querySelector("#pongbox").style.display = 'none';
+}
+
+//eingeloggt, aber namen vom 2 spieler eingegeben
+function saveSecond(){
+    username2=document.querySelector("#pongname2nd").value;
+    document.getElementById("pongplayer2").innerHTML = document.querySelector("#pongname2nd").value;
+    document.querySelector("#pongbox2").style.display = 'none';
 }
 
     function isLoggedIn($pongname1) {

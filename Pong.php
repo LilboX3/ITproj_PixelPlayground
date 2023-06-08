@@ -13,7 +13,11 @@ include_once 'navbar.php';
         <div class="col-8" style="text-align:center;">
         <h1 id="ponghead" class="textstyle" >Play Pong</h1>
         <div class="player1 textstyle" id="pongplayer1">
-            player1 Name
+        <?php if(isset($_SESSION['username'])){?>
+            <div id="player1name"><?php $_SESSION['username']?></div>
+            <?php } else {?>
+            <div id="player1name"> player1 Name </div>
+            <?php }?>
         </div>
         <div class="player2 textstyle" id="pongplayer2">
             player2 Name
@@ -26,7 +30,14 @@ include_once 'navbar.php';
                 <input type="text" id="pongname2" placeholder="player two"> 
                 <button id="savepong">Save</button>
             </div>
-            <?php }?>
+            <?php } else {?>
+                <div class="entername" id="pongbox2" >
+                    <div style="font-size:small;">Enter 2nd player name to save your score !</div>
+                    <input type="text" id="pongname2nd" placeholder="player two"> 
+                    <button id="savepong2" onclick="saveSecond()">Save</button>
+                </div>
+                <?php }?>
+
 
             <div id="gameMode">
                 <button id="normalmode">Play Normal game mode - for beginners</button> <br> <br>

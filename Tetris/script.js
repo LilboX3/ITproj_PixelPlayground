@@ -134,8 +134,13 @@ function DrawTetromino() {
         ctx.fillRect(coorX, coorY, 21, 21);
     }
 }
-isLoggedIn();
-function isLoggedIn() {
+
+document.getElementById("savetetris").onclick = function(){
+    isLoggedIn(document.querySelector("#tetrisname").value);
+    document.querySelector("#tetrisbox").style.display = 'none';
+}
+
+function isLoggedIn($user) {
     $.ajax({
         url: "./src/check_login.php",
         type: "GET",
@@ -146,7 +151,7 @@ function isLoggedIn() {
             } else {
                 console.log("User is not logged in");
                     //pop up to ask for name if the player isnt logged in
-                username = prompt("Please choose a name to be remembered by King! :");
+                username = $user;
                 if (username == null || username.trim() == "") {
                     console.log("Username is required.");
                     return;

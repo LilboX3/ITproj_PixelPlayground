@@ -3,7 +3,7 @@ include_once 'navbar.php';
 ?>
 
     <title>Tetris</title>
-    <link rel="stylesheet" href="Tetris/tetris.css">
+    <link rel="stylesheet" href="Tetris/style.css">
     <link rel="stylesheet" href="Tetris/prstartk.ttf">
 </head>
 <body class="background">
@@ -11,7 +11,8 @@ include_once 'navbar.php';
     <?php if(!isset($_SESSION['username'])){?>
     <div class="entername" id="tetrisbox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="tetrisname" placeholder="be creative!"> <button id="savetetris">Save</button>
+                <input type="text" id="tetrisname" placeholder="be creative!"> 
+                <button id="savetetris">Save</button>
     </div>
     <?php }?>
 
@@ -20,7 +21,6 @@ include_once 'navbar.php';
             <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
         </div>
         <canvas id="tetris"></canvas>
-         <script src="tetris.js"></script>
         </div>
         
 

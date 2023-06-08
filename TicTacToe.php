@@ -16,9 +16,15 @@ include_once 'navbar.php';
                 <div style="font-size:small;">Enter your name to save your score !</div>
                 <input type="text" style="margin-bottom:1%;" id="tictactoename" placeholder="Player X">
                 <input type="text" id="tictactoename2" placeholder="Player O">
-                <button id="savetictactoe">Save</button>
+                <button id="savetictactoe" onclick="savePlayers()">Save</button>
             </div>
-        <?php }?>
+            <?php } else {?>
+                <div class="entername" id="tictactoebox2" >
+                    <div style="font-size:small;">Enter 2nd player name to save your score !</div>
+                    <input type="text" id="tictactoename2nd" placeholder="player two"> 
+                    <button id="savetictactoe2" onclick="savePlayer2()"> Save </button>
+                </div>
+                <?php }?>
 
             <section>
                 <h1>Tic Tac Toe</h1>

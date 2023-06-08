@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", () => {
     const tiles = Array.from(document.querySelectorAll(".tile"));
     const playerDisplay = document.querySelector(".display-player");
@@ -13,6 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let scoreX = 0;
     let scoreO = 0;
     var username = "";
+    var username2 = "";
     let powerUpEnabled = false;
     let isAIInactive = false;
 
@@ -56,11 +58,14 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!board.includes("")) announce(TIE);
     }
 
+    /* Beide user nicht eingeloggt
     document.getElementById("savetictactoe").onclick = function () {
         isLoggedIn(document.querySelector("#tictactoename").value);
         secondPlayer(document.querySelector("#tictactoename2").value);
         document.querySelector("#tictactoebox").style.display = 'none';
-    }
+    }*/
+
+    
 
     function isLoggedIn($toename) {
         $.ajax({
@@ -296,6 +301,18 @@ window.addEventListener("DOMContentLoaded", () => {
         resetBoard(true);
     });
 });
+
+/*user eingeloggt, name für 2. spieler*/
+function savePlayer2(){
+    username2 = document.querySelector("#tictactoename2nd").value;
+    document.querySelector("#tictactoebox2").style.display = 'none';
+}
+
+function savePlayers(){
+    isLoggedIn(document.querySelector("#tictactoename").value);
+    secondPlayer(document.querySelector("#tictactoename2").value);
+    document.querySelector("#tictactoebox").style.display = 'none';
+}
 
 
 
