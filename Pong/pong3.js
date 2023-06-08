@@ -278,7 +278,7 @@ function illusioncheckCollision(){
     if(illusionBallX <= 0){
         illusionPlayer2Score +=1;
         $.ajax({
-            url: "/ITproj_PixelPlayground-master/Backend/db.php",
+            url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
             data: { username: username2, score: illusionPlayer2Score, game: "Illusion Pong" },
             success: function(response) {
@@ -299,7 +299,7 @@ function illusioncheckCollision(){
     if(illusionBallX >= illusionWidth){
             illusionPlayer1Score +=1;
             $.ajax({
-                url: "/ITproj_PixelPlayground-master/Backend/db.php",
+                url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
                 data: { username: username, score: illusionPlayer1Score, game: "Illusion Pong" },
                 success: function(response) {
