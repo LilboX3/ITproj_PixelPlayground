@@ -1,5 +1,4 @@
 
-window.addEventListener("DOMContentLoaded", () => {
     const tiles = Array.from(document.querySelectorAll(".tile"));
     const playerDisplay = document.querySelector(".display-player");
     const resetButton = document.querySelector("#reset");
@@ -58,14 +57,6 @@ window.addEventListener("DOMContentLoaded", () => {
         if (!board.includes("")) announce(TIE);
     }
 
-    /* Beide user nicht eingeloggt
-    document.getElementById("savetictactoe").onclick = function () {
-        isLoggedIn(document.querySelector("#tictactoename").value);
-        secondPlayer(document.querySelector("#tictactoename2").value);
-        document.querySelector("#tictactoebox").style.display = 'none';
-    }*/
-
-    
 
     function isLoggedIn($toename) {
         $.ajax({
@@ -300,7 +291,7 @@ window.addEventListener("DOMContentLoaded", () => {
         isAIInactive = false;
         resetBoard(true);
     });
-});
+
 
 /*user eingeloggt, name für 2. spieler*/
 function savePlayer2(){
