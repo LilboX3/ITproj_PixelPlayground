@@ -13,7 +13,9 @@ include_once 'navbar.php';
     <div class="row">
 
         <div class="col-2">
+          <div class="boxstyle" style="width: 150px;">
           <a href="login.php">Log In now!</a>
+          </div>
         </div>
     <!-- Slideshow container -->
 
@@ -81,7 +83,7 @@ include_once 'navbar.php';
         </div>
 
         <div class="col-2">
-            <div style="background-color:blueviolet; width:300px;">
+            <div class="boxstyle">
               <p style="color:white;">Song of the day:</p>
               <audio controls>
               <source src="Music/music1.mp3" type="audio/mpeg">

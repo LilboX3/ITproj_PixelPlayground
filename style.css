@@ -127,3 +127,11 @@
   flex-wrap: nowrap;
   color: black;
 }
+
+.boxstyle{
+  width: 300px;
+  background-color:#693DA9;
+  border: 3px solid gold;
+  border-radius: 2%;
+  border-style: outset;
+}
