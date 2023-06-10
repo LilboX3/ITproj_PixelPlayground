@@ -83,7 +83,7 @@ include_once 'navbar.php';
         </div>
 
         <div class="col-2">
-            <div class="boxstyle">
+            <div class="boxstyle" style="text-align:center;">
               <p style="color:white;">Song of the day:</p>
               <button class="musicbutton" id="playbutton"></button>
           </div>
