@@ -52,7 +52,12 @@ var bool = false;
     console.log("PAUSING NOW!!!!!");
     audio.pause();
     btn.classList.remove("paused");
-    
+
     }
     bool = !bool;
+  }
+
+  var restart = document.getElementById('restart');
+  restart.onclick = function (){
+    audio.currentTime = 0;
   }

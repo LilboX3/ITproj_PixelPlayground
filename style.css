@@ -136,6 +136,7 @@
   border-style: outset;
 }
 
+/*play and pause music button*/
 .musicbutton {
   border: 0;
   background: transparent;
@@ -159,3 +160,6 @@
     border-color: transparent transparent transparent #404040;
   }
 }
+
+/*restart button*/
+
