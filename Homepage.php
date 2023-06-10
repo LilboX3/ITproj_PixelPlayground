@@ -13,7 +13,7 @@ include_once 'navbar.php';
     <div class="row">
 
         <div class="col-2">
-          <div class="boxstyle" style="width: 150px;">
+          <div class="boxstyle" style="width: 150px; position:relative;">
           <a href="login.php">Log In now!</a>
           </div>
         </div>
