@@ -33,3 +33,26 @@ function showSlides(n, f) {
     }, 5000);
   }
 }
+
+var bool = false;
+
+/*music player*/
+  var btn = document.getElementById("playbutton");
+  var audio = new Audio("Music/music1.mp3");
+  btn.onclick = function() {
+    console.log("---->BOOL IS:"+bool);
+    if(!bool){
+
+    console.log("PLAYING NOW");
+    audio.play();
+    btn.classList.add("paused");
+
+    } else {
+
+    console.log("PAUSING NOW!!!!!");
+    audio.pause();
+    btn.classList.remove("paused");
+    
+    }
+    bool = !bool;
+  }

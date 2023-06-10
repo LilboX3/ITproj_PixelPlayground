@@ -85,10 +85,7 @@ include_once 'navbar.php';
         <div class="col-2">
             <div class="boxstyle">
               <p style="color:white;">Song of the day:</p>
-              <audio controls>
-              <source src="Music/music1.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio>
+              <button class="musicbutton" id="playbutton"></button>
           </div>
 
         </div>
