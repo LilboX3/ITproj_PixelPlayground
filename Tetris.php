@@ -7,23 +7,27 @@ include_once 'navbar.php';
     <link rel="stylesheet" href="Tetris/prstartk.ttf">
 </head>
 <body class="background">
-    <div class="container">
-    <?php if(!isset($_SESSION['username'])){?>
-    <div class="entername" id="tetrisbox">
-                <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="tetrisname" placeholder="be creative!"> 
-                <button id="savetetris">Save</button>
-    </div>
-    <?php }?>
-
-        <div class="gameField">
-        <div id="logo-container">
-            <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center align-items-center">
+            <?php if(!isset($_SESSION['username'])){?>
+            <div class="entername" id="tetrisbox">
+                        <div style="font-size:small;">Enter your name to save your score !</div>
+                        <input type="text" id="tetrisname" placeholder="be creative!"> 
+                        <button id="savetetris">Save</button>
+            </div>
         </div>
-        <canvas id="tetris"></canvas>
+        <?php }?>
         </div>
-        
 
+            <div class="gameField d-flex justify-content-center align-items-center">
+                <!--<div id="logo-container">
+                <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
+                </div>-->
+                <div class="mt-5 mb-5">
+                <canvas id="tetris"></canvas>
+                </div>
+            </div><
     </div>
             
 
