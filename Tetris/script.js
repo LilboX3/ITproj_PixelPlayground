@@ -220,7 +220,9 @@ function HandleKeyPress(key) {
         } else if(key.keyCode === 83 || key.keyCode === 40) {     // S key or down arrow
             MoveTetrominoDown();
         } else if(key.keyCode === 69 || key.keyCode === 17) {     // E key or ctrl
-            RotateTetromino();
+            if(!HittingTheWall() && !CheckForHorizontalCollision()) {       // unfortunately wasn't an easy fix :(
+                RotateTetromino();  
+            }
         }
     }
     
@@ -385,6 +387,8 @@ function CheckForCompletedRows(){
                 gameBoardArray[i][y] = 0;
                 let coorX = coordinateArray[i][y].x;
                 let coorY = coordinateArray[i][y].y;
+                ctx.fillStyle = 'white';                //TODO: insert animation instead
+                ctx.fillRect(coorX, coorY, 21, 21);
                 ctx.fillStyle = 'black';
                 ctx.fillRect(coorX, coorY, 21, 21);
             }
