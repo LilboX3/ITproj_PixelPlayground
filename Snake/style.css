@@ -38,7 +38,41 @@
     background-color: rgb(155, 34, 159);
 }
 
+.ezBtn{
+    font-size: 20px;
+    background-color: rgb(60, 76, 255);
+    color: white;
+    padding: 2%;
+}
 
+.ezBtn:active{
+    font-size: 19px;
+    background-color: rgb(49, 63, 216);
+}
+
+.normBtn{
+    font-size: 20px;
+    background-color: rgb(183, 54, 230);
+    color: white;
+    padding: 2%;
+}
+
+.normBtn:active{
+    font-size: 19px;
+    background-color: rgb(161, 40, 205);
+}
+
+.hardBtn{
+    font-size: 20px;
+    background-color: rgb(255, 60, 222);
+    color: white;
+    padding: 2%;
+}
+
+.hardBtn:active{
+    font-size: 19px;
+    background-color: rgb(234, 47, 203);
+}
 
 .gameField{
     background-color: rgb(4, 0, 30);
