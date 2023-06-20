@@ -23,13 +23,29 @@ let snake = [
     {x:unitSize, y:0},
     {x:0, y:0}
 ]
+var speed;
 
 window.addEventListener("keydown", changeDirection);
 reset.addEventListener("click", resetGame);
 
-gameStart();
+easy.addEventListener("click", function(){
+    speed = 150;
+    gameStart();
+});
+
+normal.addEventListener("click", function(){
+    speed = 100;
+    gameStart();
+});
+
+hard.addEventListener("click", function(){
+    speed = 50;
+    gameStart();
+});
 
 function gameStart(){
+    $("#mode").hide();
+    $("#gameField").show();
     running = true;
     scoreTxt.textContent = score;
     createFood();
@@ -46,7 +62,7 @@ function nextTick(){
             drawSnake();
             checkGameOver();
             nextTick();
-        }, 100)
+        }, speed)
     }
     else{
         displayGameOver();
@@ -190,6 +206,11 @@ function displayGameOver(){
     running = false;
 };
 
+function startMenu(){
+    $("#gameField").hide();
+    $("#mode").show();
+};
+
 function resetGame(){
     score = 0;
     xVelocity = unitSize;
@@ -201,6 +222,6 @@ function resetGame(){
         {x:unitSize, y:0},
         {x:0, y:0}
     ];
-    gameStart();
+    startMenu();
 };
 
