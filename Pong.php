@@ -72,9 +72,6 @@ include_once 'navbar.php';
     </div>
 </div>
 
-    <!---<div id="illusionContainer">
-        <canvas id="illusionBoard" width="500" height="500"></canvas>
-    </div> !--->
 </body>
 <script src="Pong/pong.js"></script>
 <script src="Pong/pong2.js"></script>
