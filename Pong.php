@@ -26,7 +26,7 @@ include_once 'navbar.php';
         <?php if(!isset($_SESSION['username'])){?>
             <div class="entername" id="pongbox">
                 <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" style="margin-bottom:1%;"id="pongname" placeholder="olayer one"> 
+                <input type="text" style="margin-bottom:1%;"id="pongname" placeholder="player one"> 
                 <input type="text" id="pongname2" placeholder="player two"> 
                 <button id="savepong">Save</button>
             </div>
