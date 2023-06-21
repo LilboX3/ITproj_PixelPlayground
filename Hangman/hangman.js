@@ -126,6 +126,7 @@ function input($letter){
         if(currWord[i]==$letter){
             letterCount++;
             found = true;
+            updateHighScores();
             $("#line"+i).text($letter);
             $("#line"+i).css("fontSize", 20);
         }
