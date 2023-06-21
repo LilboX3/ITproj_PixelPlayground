@@ -7,14 +7,18 @@
     font-size: 20px;
     float: left;
    }
+
+   h1{
+    margin-top: auto;
+    text-align: center;
+    color: white;
+   }
    
    .infobox, #spielbereich {
-       border: 10px solid transparent;
-       background-color: darkslateblue;
-    border: 5px solid purple;
-    border-radius: 4%;
-    outline: 1px solid black;
-    margin-top: 1%;
+       background-color:  rgb(4, 0, 30);;
+    border: 2px solid rgb(243, 255, 81);
+    border-radius: 2%;
+    border-style: outset;
     margin-left: 10px;
     float:left;
    }
