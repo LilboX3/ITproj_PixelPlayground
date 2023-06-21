@@ -8,8 +8,17 @@ include_once 'navbar.php';
 </head>
 
 <body class="background">
+<div class="parent-flex-container">
+    <div id="scoreboard" class="scoreboard">
+        <div class="score-label">SCORE:....<span id="score">0</span></div>
+    </div>
+    <div id="topfive" class="topfive">
+         <span id="top5score"></span>
+    </div>
     <div class="container">
         <div class="row">
+            
+
             <div class="col-2"></div>
 
             <div class="col-8">
@@ -77,7 +86,7 @@ include_once 'navbar.php';
             <div class="col-2"></div> 
         </div>
     </div>
-
+</div>
 <script src="Hangman/hangman.js"></script>
 <script>
     function resetGame() {
