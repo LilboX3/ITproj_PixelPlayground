@@ -7,8 +7,6 @@ var mistakes = 0;
 var wordIndex;
 var score = 0;
 
-console.log("Current username inisde javascript: ", username);
-
 //must be same length
 console.log("words and hints array same length: " + (words.length==hints.length));
 
