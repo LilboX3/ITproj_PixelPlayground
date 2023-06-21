@@ -5,7 +5,6 @@ let gBarrayWidth = 12; // x
 let startX = 4;
 let startY = 0;
 let score = 0;
-var username = "";
 let level = 1;
 let winOrLose = "Playing";
 let tetrisLogo;
@@ -35,7 +34,25 @@ class Coordinates {
         this.y = y;
     }
 }
-
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Tetris' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '.........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
+updateHighScores();
 document.addEventListener('DOMContentLoaded', SetupCanvas);
 
 function CreateCoordArray() {
@@ -132,6 +149,8 @@ function SetupCanvas() {
         ctx.fillStyle = 'black'; // Black font color for the game over text
         ctx.font = '24px Press Start';
         ctx.fillText("GAME OVER!", 310, 261);
+        updateScore(score);
+        updateHighScores();
       }
   
     // controls
@@ -396,6 +415,8 @@ function CheckForCompletedRows(){
     }
     if(rowsToDelete > 0) {
         score += 10;
+        updateScore(score);
+        updateHighScores();
         $.ajax({
             url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
