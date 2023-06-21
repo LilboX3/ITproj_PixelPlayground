@@ -25,12 +25,25 @@ include_once 'navbar.php';
             <h1 style="margin-bottom:2%;">HANGMAN GAME</h1>
 
             <?php if(!isset($_SESSION['username'])){?>
-            <div class="entername" id="hangmanbox" style="text-align: center;">
-                <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
-            </div>
-            <?php
-            }?>
+            <?php 
+                if (isset($_SESSION['username'])){ ?>
+                    <script>
+                        var username = '<?php echo $_SESSION['username']; ?>';
+                        console.log("Current username inside .php : ", username);
+                    </script>
+                    <?php 
+                } 
+            ?>
+
+            <?php 
+                if(!isset($_SESSION['username'])){?>
+                    <div class="entername" id="hangmanbox" style="text-align: center;">
+                        <div style="font-size:small;">Enter your name to save your score !</div>
+                        <input type="text" id="hangmanname" placeholder="be creative!"> <button id="savehangman">Save</button>
+                    </div>
+                    <?php
+                }
+            ?>
 
             <img id="hangmanpic" class="responsive" src="pics/white.png" alt="hangman">
             <div class="displayword">

@@ -6,7 +6,8 @@ var toFind = 0;
 var mistakes = 0;
 var wordIndex;
 var score = 0;
-var username = "";
+
+console.log("Current username inisde javascript: ", username);
 
 //must be same length
 console.log("words and hints array same length: " + (words.length==hints.length));
@@ -99,7 +100,7 @@ function isLoggedIn($name) {
             if (response === "true") {
                 console.log("User is logged in");
                 // User is logged in, continue with the game
-                saveScore();
+                return;        
             } else {
                 console.log("User is not logged in");
                 username = $name;
@@ -107,25 +108,10 @@ function isLoggedIn($name) {
                     console.log("Username is required.");
                     return;
                 }
-                saveScore();
             }
         },
         error: function(xhr, status, error) {
             console.error("Error checking login status: " + error);
-        }
-    });
-}
-
-function saveScore() {
-    $.ajax({
-        url: "/ITproj_PixelPlayground-master/src/highscore.php",
-        type: "POST",
-        data: { username: username, score: score, game: "Hangman" },
-        success: function(response) {
-            console.log("Score saved successfully.");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error sending score: " + error);
         }
     });
 }
@@ -178,7 +164,7 @@ function input($letter){
             type: "POST",
             data: { username: username, score: score, game: "Hangman" },
             success: function(response) {
-                console.log("score sent <3");
+                    console.log("score sent <3 to ", username);
             },
             error: function(xhr, status, error) {
                 console.error("Error sending score :( " + error);

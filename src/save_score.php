@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost"; // Or enter your server name here
-$username = "bif2webscriptinguser"; // Enter your MySQL username here
-$password = "bif2021"; // Enter your MySQL password here
-$dbname = "PixelPlayground"; // Enter your database name here
+$servername = "localhost";
+$username = "bif2webscriptinguser"; 
+$password = "bif2021"; 
+$dbname = "PixelPlayground"; 
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 

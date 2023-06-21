@@ -15,7 +15,7 @@ let yVelocity = 0;
 let foodX;
 let foodY;
 let score = 0;
-var username = "";
+console.log("Current username: ", username);
 let snake = [
     {x:unitSize*4, y:0},
     {x:unitSize*3, y:0},
