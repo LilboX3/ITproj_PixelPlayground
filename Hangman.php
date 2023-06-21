@@ -80,7 +80,7 @@ include_once 'navbar.php';
             </table>
 
             <button class="btn btn-danger" id="hint" onclick="getHint()">Click for a hint!</button>
-            <button class="btn btn-dark" id="new" onclick="resetGame()" style="display:none; border-radius: 0%;">Play again</button>
+            <button class="btn btn-dark" id="new" onclick="resetGame(), closeHint()" style="display:none; border-radius: 0%;">Play again</button>
             </div>
 
             <div class="col-2"></div> 
