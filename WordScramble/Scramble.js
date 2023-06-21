@@ -16,6 +16,25 @@ let time = 20;
 var username = "";
 let currentLevel = 0;
 
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Scramble' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '.........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
+
 // Event-Listener für Level-Schaltflächen
 const levelButtons = document.querySelectorAll(".levelbtn");
 levelButtons.forEach((btn) => {
@@ -104,6 +123,8 @@ function gameOver() {
     let msg = `Game Over! You get ${score} points, play again!`;
     num = 3;
     score = 0;
+    updateScore(score);
+    updateHighScores();
     refreshGame(msg);
 }
 
@@ -121,6 +142,8 @@ function loseGame(msg) {
 // win game
 function winGame(msg) {
     score = + 10;
+    updateScore(score);
+    updateHighScores();
     $.ajax({
         url: "/ITproj_PixelPlayground-master/src/highscore.php",
         type: "POST",
