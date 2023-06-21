@@ -10,12 +10,29 @@ include_once 'navbar.php';
 </head>
 <body class="background">
     <div class="container">
+    <div id="scoreboard" class="scoreboard">
+        <div class="score-label">SCORE:....<span id="score">0</span></div>
+    </div>
+    <div id="topfive" class="topfive">
+         <span id="top5score"></span>
+    </div>
+
     <?php if(!isset($_SESSION['username'])){?>
         <div class="entername" id="snakebox">
                     <div style="font-size:small;">Enter your name to save your score !</div>
                     <input type="text" id="snakename" placeholder="be creative!"> <button id="savesnake">Save</button>
         </div>
     <?php }?>
+
+    <?php 
+            if (isset($_SESSION['username'])){ ?>
+                    <script>
+                        var username = '<?php echo $_SESSION['username']; ?>';
+                        console.log("Current username inside .php : ", username);
+                    </script>
+                    <?php 
+                } 
+        ?>
 
         <div class="gameField" id="mode">
             <div style="padding-top:10%; padding-bottom:20%; text-align: center">

@@ -15,7 +15,7 @@ let yVelocity = 0;
 let foodX;
 let foodY;
 let score = 0;
-console.log("Current username: ", username);
+
 let snake = [
     {x:unitSize*4, y:0},
     {x:unitSize*3, y:0},
@@ -27,6 +27,8 @@ var speed;
 
 window.addEventListener("keydown", changeDirection);
 reset.addEventListener("click", resetGame);
+updateScore(score);
+updateHighScores();
 
 easy.addEventListener("click", function(){
     speed = 150;
@@ -204,6 +206,8 @@ function displayGameOver(){
     ctx.textAlign = "center";
     ctx.fillText("GAME OVER!", gameWidth/2, gameHeight/2);
     running = false;
+    updateScore(score);
+    updateHighScores();
 };
 
 function startMenu(){
@@ -224,4 +228,24 @@ function resetGame(){
     ];
     startMenu();
 };
+
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php', 
+        type: 'POST',
+        data: { game: 'Snake' }, 
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
 

@@ -24,7 +24,6 @@ include_once 'navbar.php';
             <div class="col-8">
             <h1 style="margin-bottom:2%;">HANGMAN GAME</h1>
 
-            <?php if(!isset($_SESSION['username'])){?>
             <?php 
                 if (isset($_SESSION['username'])){ ?>
                     <script>
