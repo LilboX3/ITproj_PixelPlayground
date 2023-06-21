@@ -27,7 +27,7 @@ include_once 'navbar.php';
   <?php }?>
  
  <div id = "spielbereich">
-    <h1>MEMORY</h1>
+    <h1 id="memorytitle">MEMORY</h1>
   </div>
   <div class="infobox">
     <div id="tries" class="labels">

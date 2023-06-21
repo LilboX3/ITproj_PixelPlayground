@@ -12,6 +12,7 @@ var score = 0;
 var username = "";
 
 document.getElementById('restartMemory').onclick = function() {
+    score = 0;
     location.reload(); //is simpler als alles zu leeren und wieder aufzubauen ig
     
 }
@@ -125,6 +126,9 @@ function found(img){
             console.error("Error sending score :( " + error);
         }
     });
+    if(score>=16){
+        document.getElementById("memorytitle").innerHTML = "Won in "+tries+" tries!";
+    }
 }
 
 function hide(img){
