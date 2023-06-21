@@ -31,7 +31,7 @@ session_start();
                 <?php if(!isset($_SESSION['username'])){?>
                 <a href="login.php">Login</a>
                 <?php } else {?>
-                <a style="color:white;">Logged in as <?php $_SESSION['username']?>!</a>
+                <a style="color:white;"><?php echo $_SESSION['username'];?>!</a>
                 <?php } ?>
                 <?php if(isset($_SESSION['username'])){?>
                 <a href="logout.php">Logout</a>
