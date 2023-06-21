@@ -41,8 +41,18 @@ function updateHighScores() {
 //button pressed to show a hint
 function getHint(){
     var txt = $("<p></p>").text(hints[wordIndex]);
+    txt.attr("id", "thehint");
     $("#hint").append(txt);
     $("#hint").removeAttr("onclick");
+    $("#hint").attr("onclick", "closeHint()");
+}
+
+function closeHint(){
+    $("#hint").empty();
+    $("#hint").text("Click for a hint!");
+    $("#hint").removeAttr("onclick");
+    $("#hint").attr("onclick", "getHint()");
+
 }
 
 //choose a word, get index of word in the array, count how many letters there are to find
