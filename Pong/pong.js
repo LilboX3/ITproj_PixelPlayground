@@ -1,5 +1,5 @@
 var username = document.querySelector("#player1name").value;
-var username2 = "";
+console.log("Current username: ", username);
 
 const gameBoard = document.querySelector("#gameBoard");
 
@@ -15,7 +15,24 @@ document.getElementById('normalmode').onclick = function() {
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#gameContainer").style.display = 'block';
 }
-
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Pong' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
     //Auf dem Kontext wird "gezeichnet"
     const ctx = gameBoard.getContext("2d");
     const scoreText = document.querySelector("#scoreText");
@@ -104,6 +121,7 @@ document.getElementById('normalmode').onclick = function() {
             moveBall();
             drawBall(ballX, ballY);
             checkCollision();
+            updateHighScores();
             nextTick();
         }, 10);
     }
@@ -149,6 +167,7 @@ document.getElementById('normalmode').onclick = function() {
     }
 
     function moveBall(){
+        updateHighScores();
         ballX += (ballSpeed * ballXDirection); //um ballSpeed Felder nach links oder rechts bewegen 
         ballY += (ballSpeed * ballYDirection);
     }
@@ -240,6 +259,7 @@ function saveSecond(){
         //LINKS Tor!!! player2 bekommt punkt 
         if(ballX <= 0){
             player2Score +=1;
+            updateHighScores();
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
@@ -259,6 +279,7 @@ function saveSecond(){
         //RECHTS Tor!!! player1 bekommt punkt
         if(ballX >= gameWidth){
             player1Score +=1;
+            updateHighScores();
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
