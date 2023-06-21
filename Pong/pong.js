@@ -108,7 +108,7 @@ function updateHighScores() {
 
     //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
     function gameStart(){
-        
+        updateHighScores();
         createBall();
         nextTick();
     }
@@ -121,7 +121,6 @@ function updateHighScores() {
             moveBall();
             drawBall(ballX, ballY);
             checkCollision();
-            updateHighScores();
             nextTick();
         }, 10);
     }
@@ -167,7 +166,6 @@ function updateHighScores() {
     }
 
     function moveBall(){
-        updateHighScores();
         ballX += (ballSpeed * ballXDirection); //um ballSpeed Felder nach links oder rechts bewegen 
         ballY += (ballSpeed * ballYDirection);
     }
