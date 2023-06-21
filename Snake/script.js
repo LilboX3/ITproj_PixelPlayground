@@ -25,6 +25,26 @@ let snake = [
 ]
 var speed;
 
+updateHighScores();
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php', 
+        type: 'POST',
+        data: { game: 'Snake' },  
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
+
 window.addEventListener("keydown", changeDirection);
 reset.addEventListener("click", resetGame);
 
@@ -95,7 +115,8 @@ function moveSnake(){
     //if food is eaten
     if(snake[0].x == foodX && snake[0].y == foodY){
         score+=1;
-        
+        updateScore(score);
+        updateHighScores();
         $.ajax({    
             url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
@@ -213,6 +234,8 @@ function startMenu(){
 
 function resetGame(){
     score = 0;
+    updateScore(score);
+    updateHighScores();
     xVelocity = unitSize;
     yVelocity = 0;
     snake = [
