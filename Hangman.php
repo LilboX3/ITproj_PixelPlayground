@@ -29,7 +29,7 @@ include_once 'navbar.php';
                 if (isset($_SESSION['username'])){ ?>
                     <script>
                         var username = '<?php echo $_SESSION['username']; ?>';
-                        console.log("Currentllylyyy username: ", username);
+                        console.log("Current username inside .php : ", username);
                     </script>
                     <?php 
                 } 
