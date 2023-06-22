@@ -13,50 +13,71 @@ include_once 'navbar.php';
     <title>Play Memory!</title>
 </head>
 <body>
-<div class="container">
-  <div class="row">
-  <div class="col-1"> 
-    
-    </div>
-  <div class="col-10">
-  <?php if(!isset($_SESSION['username'])){?>
-  <div class="entername" id="memorybox">
-                <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="memoryname" placeholder="be creative!"> <button id="savememory">Save</button>
-  </div>
-  <?php }?>
- 
- <div id = "spielbereich">
-    <h1 id="memorytitle">MEMORY</h1>
-  </div>
-  <div class="infobox">
-    <div id="tries" class="labels">
-        Tries: 0
-    </div>
- </div>
-
-   <div class="infobox">
-    <div class="labels" id="time">
-        Time passed:
-        <button onClick="timeDisplay()" id="timebutton">Start a timer!</button>
-    </div>
-   </div>
-
-   <div class="infobox">
-    <div id="restartMemory" class="labels">
-        <button>Restart</button>
-    </div>
-    </div>
-
-  </div>
-
-   <div class="col-1"> 
-    
-  </div>
- </div>
-
-
-</div>
+	<div class="parent-flex-container">
+	      <div id="scoreboard" class="scoreboard">
+	          <div class="score-label">SCORE:....<span id="score">0</span></div>
+	      </div>
+	      <div id="topfive" class="topfive">
+	          <span id="top5score"></span>
+	      </div>
+	
+		<div class="container">
+		  <div class="row">
+		  <div class="col-1"> 
+		    
+		    </div>
+		  <div class="col-10">
+		<?php 
+			if(isset($_SESSION['username'])){ ?>
+				<script>
+					var username = '<?php echo $_SESSION['username']; ?>';
+					console.log("Current username inside .php : ", username);
+				</script>
+				<?php 
+			} 
+		?>
+	  	<?php 
+			if(!isset($_SESSION['username'])){?>
+	  			<div class="entername" id="memorybox">
+					<div style="font-size:small;">Enter your name to save your score !</div>
+						<input type="text" id="memoryname" placeholder="be creative!"> <button id="savememory">Save</button>
+					</div>
+				<?php 
+			}
+		?>
+		 
+		 <div id = "spielbereich">
+		    <h1 id="memorytitle">MEMORY</h1>
+		  </div>
+		  <div class="infobox">
+		    <div id="tries" class="labels">
+			Tries: 0
+		    </div>
+		 </div>
+		
+		   <div class="infobox">
+		    <div class="labels" id="time">
+			Time passed:
+			<button onClick="timeDisplay()" id="timebutton">Start a timer!</button>
+		    </div>
+		   </div>
+		
+		   <div class="infobox">
+		    <div id="restartMemory" class="labels">
+			<button>Restart</button>
+		    </div>
+		    </div>
+		
+		  </div>
+		
+		   <div class="col-1"> 
+		    
+		  </div>
+		 </div>
+		
+		
+		</div>
+	</div>	
 <script src="Memory/memory.js"></script>
 </body>
 </html>
