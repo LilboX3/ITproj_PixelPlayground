@@ -8,6 +8,13 @@ document.querySelector("#gameContainer").style.display = 'none';
 document.querySelector("#crazyContainer").style.display = 'none';
 document.querySelector("#illusionContainer").style.display = 'none';
 
+document.getElementById('endBtn').onclick = function(){
+    document.querySelector("#gameMode").style.display = 'block';
+    document.querySelector("#gameContainer").style.display = 'none';
+    document.getElementById("ponghead").innerHTML = 'Play Pong';
+    console.log("game ended");
+}
+
 //Normalmode 
 document.getElementById('normalmode').onclick = function() {
     resetGame();
@@ -15,9 +22,11 @@ document.getElementById('normalmode').onclick = function() {
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#gameContainer").style.display = 'block';
 }
+
 function updateScore(newScore) {
     document.getElementById('score').innerHTML = newScore;
 }
+
 function updateHighScores() {
     $.ajax({
         url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
@@ -392,12 +401,7 @@ function saveSecond(){
         gameStart();
         
     }
-    document.getElementById('endBtn').onclick = function(){
-        document.querySelector("#gameMode").style.display = 'block';
-        document.querySelector("#gameContainer").style.display = 'none';
-        document.getElementById("ponghead").innerHTML = 'Play Pong';
-        console.log("game ended");
-    }
+   
 
 //-------------------------------NORMAL MODE END -----------------------------
 
