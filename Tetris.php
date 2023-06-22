@@ -8,24 +8,21 @@ include_once 'navbar.php';
 </head>
 <body class="background">
     <div class="parent-flex-container">
-        <div id="scoreboard" class="scoreboard">
-            <div class="score-label">SCORE:....<span id="score">0</span></div>
-        </div>
         <div id="topfive" class="topfive">
             <span id="top5score"></span>
-        </div>
+        </div>    
         <div class="container ">
             <div class="row">
-                <div class="col-md-12 d-flex justify-content-center align-items-center">
                 <?php 
                     if (isset($_SESSION['username'])){ ?>
                         <script>
                             var username = '<?php echo $_SESSION['username']; ?>';
-                            console.log("Current username inside .php : ", username);
+                            console.log("Current username inisde .php: ", username);
                         </script>
                         <?php 
                     } 
                 ?>
+                <div class="col-md-12 d-flex justify-content-center align-items-center">
                 <?php if(!isset($_SESSION['username'])){?>
                 <div class="entername" id="tetrisbox">
                             <div style="font-size:small;">Enter your name to save your score !</div>
@@ -35,7 +32,7 @@ include_once 'navbar.php';
             </div>
             <?php }?>
             </div>
-    
+
                 <div class="gameField d-flex justify-content-center align-items-center">
                     <!--<div id="logo-container">
                     <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
@@ -44,9 +41,8 @@ include_once 'navbar.php';
                     <canvas id="tetris"></canvas>
                     </div>
                 </div><
-            </div>
         </div>
-            
+    </div>        
 
 
     <script src="Tetris/script.js"></script>
