@@ -43,6 +43,16 @@ include_once 'navbar.php';
                 <div class="tile"></div>
                 <div class="tile"></div>
             </section>
+            <!--NEU-->
+            <div class="pixel-man-container">
+                <div class="pixel-man">
+                    <div class="pixel-man-legs"></div>
+                </div>
+                <div class="speech-bubble show-bubble">
+                    Hallo, ich bin der Pixel-Mann!
+                </div>
+            </div>
+            <!--NEU-->
             <section class="display announcer hide scoreTxt"></section>
             <section class="controls">
                 <button id="reset">Reset</button>
