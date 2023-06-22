@@ -13,12 +13,9 @@ let timer = null;
 let score = 0;
 let num = 3;
 let time = 20;
-var username = "";
 let currentLevel = 0;
 
-function updateScore(newScore) {
-    document.getElementById('score').innerHTML = newScore;
-}
+updateHighScores();
 function updateHighScores() {
     $.ajax({
         url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
@@ -123,7 +120,6 @@ function gameOver() {
     let msg = `Game Over! You get ${score} points, play again!`;
     num = 3;
     score = 0;
-    updateScore(score);
     updateHighScores();
     refreshGame(msg);
 }
@@ -142,7 +138,6 @@ function loseGame(msg) {
 // win game
 function winGame(msg) {
     score = + 10;
-    updateScore(score);
     updateHighScores();
     $.ajax({
         url: "/ITproj_PixelPlayground-master/src/highscore.php",
