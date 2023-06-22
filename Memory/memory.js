@@ -8,11 +8,13 @@ var pick = 0;
 var tries = 0;
 var toCompare;
 var clicked = 0;
-var score = 0;
-var username = "";
-
+var correct = 0;
+var score = 16;
+updateScore(score);
+updateHighScores();
 document.getElementById('restartMemory').onclick = function() {
-    score = 0;
+    correct = 0;
+    score = 16;
     location.reload(); //is simpler als alles zu leeren und wieder aufzubauen ig
     
 }
@@ -21,7 +23,7 @@ fillArray(images);
 
 
 function incrementSeconds(cancel) {
-    if(score>=16){
+    if(correct>=16){
         clearInterval(cancel);
         timer.innerHTML = "Won in: " + seconds + " sek.";
         return;
@@ -114,20 +116,21 @@ function found(img){
     document.getElementById(img.id).removeAttribute("onClick");
     toCompare = null;
     clicked = 0;
-    score += 10;
-    $.ajax({
-       url: "/ITproj_PixelPlayground-master/src/highscore.php",
-        type: "POST",
-        data: { username: username, score: score, game: "Memory" },
-        success: function(response) {
-            console.log("score sent <3");
-        },
-        error: function(xhr, status, error) {
-            console.error("Error sending score :( " + error);
-        }
-    });
+    correct = correct + 2;
     if(score>=16){
+        $.ajax({
+           url: "/ITproj_PixelPlayground-master/src/highscore.php",
+            type: "POST",
+            data: { username: username, score: score, game: "Memory" },
+            success: function(response) {
+                console.log("score sent <3");
+            },
+            error: function(xhr, status, error) {
+                console.error("Error sending score :( " + error);
+            }
+        });
         document.getElementById("memorytitle").innerHTML = "Won in "+tries+" tries!";
+        updateHighScores();
     }
 }
 
@@ -144,6 +147,9 @@ function comparePics(img){
         //clearTimeout(myTimeout);
     } else {
         const myTimeout2 = setTimeout(hide, 2000, img);
+        score = score - 1 ;
+        console.log("score is ", score);
+        updateScore(score);
         //clearTimeout(myTimeout2);
     }
     
@@ -205,6 +211,23 @@ function countTry(){
     document.getElementById("tries").innerHTML = "Tries: "+tries;
 }
 
-
+function updateScore(newScore) {
+    document.getElementById('score').innerHTML = newScore;
+}
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Memory' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '.........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
 
 
