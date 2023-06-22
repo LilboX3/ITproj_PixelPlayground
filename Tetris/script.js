@@ -34,25 +34,7 @@ class Coordinates {
         this.y = y;
     }
 }
-function updateScore(newScore) {
-    document.getElementById('score').innerHTML = newScore;
-}
-function updateHighScores() {
-    $.ajax({
-        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
-        type: 'POST',
-        data: { game: 'Tetris' },  // replace 'Hangman' with your game's name
-        success: function(data) {
-            var highScores = JSON.parse(data);
-            var scoresHTML = '';
-            for (var i = 0; i < highScores.length; i++) {
-                scoresHTML += '<p class="top5score">' + highScores[i].username + '.........' + highScores[i].score + '</p>';
-            }
-            document.getElementById('topfive').innerHTML = scoresHTML;
-        }
-    });
-}
-updateHighScores();
+
 document.addEventListener('DOMContentLoaded', SetupCanvas);
 
 function CreateCoordArray() {
@@ -149,8 +131,6 @@ function SetupCanvas() {
         ctx.fillStyle = 'black'; // Black font color for the game over text
         ctx.font = '24px Press Start';
         ctx.fillText("GAME OVER!", 310, 261);
-        updateScore(score);
-        updateHighScores();
       }
   
     // controls
@@ -296,6 +276,22 @@ function CreateTetromino() {
     curTetromino = tetrominos[randomTetromino];
     curTetrominoColor = tetrominoColors[randomTetromino];
 }
+updateHighScores();
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Tetris' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
 
 function HittingTheWall() {
     for(let i = 0; i < curTetromino.length; i++) {
@@ -414,8 +410,8 @@ function CheckForCompletedRows(){
         }
     }
     if(rowsToDelete > 0) {
+        updateHighScores();
         score += 10;
-        updateScore(score);
         updateHighScores();
         $.ajax({
             url: "/ITproj_PixelPlayground-master/src/highscore.php",
@@ -504,4 +500,3 @@ function GetLastSquareX() {
     }
     return lastX;
 }
-
