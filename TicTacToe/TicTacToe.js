@@ -15,7 +15,7 @@
     var username2 = "";
     let powerUpEnabled = false;
     let isAIInactive = false;
-
+    updateHighScores();
     const PLAYERX_WON = "PLAYERX_WON";
     const PLAYERO_WON = "PLAYERO_WON";
     const TIE = "TIE";
@@ -114,6 +114,7 @@
             case PLAYERO_WON:
                 announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
                 scoreO += 10;
+                updateHighScores();
                 $.ajax({
                     url: "/ITproj_PixelPlayground-master/src/highscore.php",
                     type: "POST",
@@ -130,6 +131,7 @@
             case PLAYERX_WON:
                 announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
                 scoreX += 10;
+                updateHighScores();
                 $.ajax({
                     url: "/ITproj_PixelPlayground-master/src/highscore.php",
                     type: "POST",
@@ -309,6 +311,20 @@ function savePlayers(){
 
 
 
-
+function updateHighScores() {
+    $.ajax({
+        url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
+        type: 'POST',
+        data: { game: 'Tic_Tac_Toe' },  // replace 'Hangman' with your game's name
+        success: function(data) {
+            var highScores = JSON.parse(data);
+            var scoresHTML = '';
+            for (var i = 0; i < highScores.length; i++) {
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+            }
+            document.getElementById('topfive').innerHTML = scoresHTML;
+        }
+    });
+}
 
 
