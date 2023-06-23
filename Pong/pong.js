@@ -1,4 +1,5 @@
 var username = document.querySelector("#player1name").innerHTML;
+var username2 = "";
 console.log("Current username: ", username);
 
 const gameBoard = document.querySelector("#gameBoard");
@@ -18,6 +19,7 @@ document.getElementById('endBtn').onclick = function(){
 //Normalmode 
 document.getElementById('normalmode').onclick = function() {
     resetGame();
+    gameStart();
     document.getElementById("ponghead").innerHTML = 'Normal Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#gameContainer").style.display = 'block';
@@ -112,8 +114,6 @@ function updateHighScores() {
     v y
     max Height
     */
-
-    gameStart();
 
     //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
     function gameStart(){

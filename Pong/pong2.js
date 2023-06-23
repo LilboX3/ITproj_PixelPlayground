@@ -1,7 +1,10 @@
 //Crazy game mode:
-var username = "";
+var username = document.querySelector("#player1name").innerHTML;
+var username2 = "";
+
 document.getElementById('crazymode').onclick = function() {
     crazyresetGame();
+    crazygameStart();
     document.getElementById("ponghead").innerHTML = 'Crazy Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#crazyContainer").style.display = 'block';
@@ -83,11 +86,9 @@ v y
 max Height
 */
 
-crazygameStart();
 
 //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
 function crazygameStart(){
-    
     crazycreateBalls();
     crazynextTick();
 }

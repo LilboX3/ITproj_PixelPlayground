@@ -42,6 +42,7 @@ include_once 'navbar.php';
                     <input type="text" style="margin-bottom:1%;"id="pongname" placeholder="player one"> 
                     <input type="text" id="pongname2" placeholder="player two"> 
                     <button id="savepong">Save</button>
+                    
                 </div>
                 <?php } else {?>
                     <div class="entername" id="pongbox2" >

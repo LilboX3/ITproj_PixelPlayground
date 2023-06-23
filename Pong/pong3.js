@@ -1,5 +1,9 @@
+var username = document.querySelector("#player1name").innerHTML;
+var username2 = "";
+
 document.getElementById('illusionmode').onclick = function() {
     illusionresetGame();
+    illusiongameStart();
     document.getElementById("ponghead").innerHTML = 'Illusion Pong';
     document.querySelector("#gameMode").style.display = 'none';
     document.querySelector("#illusionContainer").style.display = 'block';
@@ -81,7 +85,7 @@ v y
 max Height
 */
 
-illusiongameStart();
+
 
 //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
 function illusiongameStart(){
