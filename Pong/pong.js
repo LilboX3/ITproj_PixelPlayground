@@ -1,4 +1,4 @@
-var username = document.querySelector("#player1name").value;
+var username = document.querySelector("#player1name").innerHTML;
 console.log("Current username: ", username);
 
 const gameBoard = document.querySelector("#gameBoard");
@@ -270,6 +270,7 @@ function saveSecond(){
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
+                async: false,
                 data: { username: username2, score: player2Score, game: "Pong" },
                 success: function(response) {
                     console.log("score sent <3");
@@ -290,6 +291,7 @@ function saveSecond(){
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
+                async: false,
                 data: { username: username, score: player1Score, game: "Pong" },
                 success: function(response) {
                     console.log("score sent <3");

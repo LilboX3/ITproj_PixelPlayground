@@ -302,7 +302,7 @@ function updateHighScores() {
             var highScores = JSON.parse(data);
             var scoresHTML = '';
             for (var i = 0; i < highScores.length; i++) {
-                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '....' + highScores[i].score + '</p>';
             }
             document.getElementById('topfive').innerHTML = scoresHTML;
         }
