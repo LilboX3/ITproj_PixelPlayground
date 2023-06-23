@@ -24,7 +24,7 @@ include_once 'navbar.php';
                 
             <?php 
                 if(isset($_SESSION['username'])){?>
-                    <div id="player1name"><?php $_SESSION['username']?></div>
+                    <div id="player1name"><?php echo $_SESSION['username']?></div>
                     <?php } else {?>
                     <div id="player1name"> player1 Name </div>
                     <?php 
