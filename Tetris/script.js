@@ -19,6 +19,9 @@ let gameBoardArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fill
 
 let stoppedShapeArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fill(0));
 
+
+
+
 let DIRECTION = {
     IDLE: 0,
     DOWN: 1,
@@ -236,11 +239,24 @@ function MoveTetrominoDown() {
     }
 }
 
-window.setInterval(function() {
-    if(winOrLose != "Game Over") {
-        MoveTetrominoDown();
-    }
-}, 1000);
+
+const playButton = document.querySelector("#playButton");
+const resetButton = document.querySelector("#resetButton");
+
+playButton.addEventListener('click', function() {
+    console.log("Play button clicked");
+    window.setInterval(function() {
+        if(winOrLose != "Game Over") {
+            MoveTetrominoDown();
+        }
+    }, 1000);
+});
+
+resetButton.addEventListener('click', function() {
+    console.log("Reset button clicked");
+    location.reload();
+});
+
 
 function DeleteTetromino() {
     for(let i = 0; i < curTetromino.length; i++) {
