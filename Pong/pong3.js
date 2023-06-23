@@ -289,7 +289,7 @@ function illusioncheckCollision(){
             type: "POST",
             data: { username: username2, score: illusionPlayer2Score, game: "Illusion Pong" },
             success: function(response) {
-                console.log("score sent <3");
+                console.log("score sent <3 to:", username2);
             },
             error: function(xhr, status, error) {
                 console.error("Error sending score :( " + error);
@@ -310,7 +310,7 @@ function illusioncheckCollision(){
                 type: "POST",
                 data: { username: username, score: illusionPlayer1Score, game: "Illusion Pong" },
                 success: function(response) {
-                    console.log("score sent <3");
+                    console.log("score sent <3 to:", username);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error sending score :( " + error);
