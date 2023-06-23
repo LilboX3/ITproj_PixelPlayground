@@ -7,9 +7,6 @@ include_once 'navbar.php';
 <body class="background">
 <div class="parent-flex-container">
 
-    <div id="scoreboard" class="scoreboard">
-        <div class="score-label">SCORE:....<span id="score">0</span></div>
-    </div>
     <div id="topfive" class="topfive">
          <span id="top5score"></span>
     </div>

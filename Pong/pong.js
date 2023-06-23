@@ -27,10 +27,6 @@ document.getElementById('normalmode').onclick = function() {
     document.querySelector("#gameContainer").style.display = 'block';
 }
 
-function updateScore(newScore) {
-    document.getElementById('score').innerHTML = newScore;
-}
-
 function updateHighScores() {
     $.ajax({
         url: '/ITproj_PixelPlayground-master/src/topfivescores.php',  // adjust this path to the location of your PHP script
