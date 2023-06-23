@@ -99,7 +99,10 @@ function updateHighScores() {
     //wenn eine Taste gedrückt wird: changeDirection aufrufen, um paddles zu bewegen
     window.addEventListener("keydown", changeDirection);
     //wenn Reset button geklickt wird, das game von neu starten
-    resetBtn.addEventListener("click", resetGame);
+    resetBtn.addEventListener("click", function(){
+        resetGame();
+        gameStart();
+    });
 
     //Game Mode auswählen?
 

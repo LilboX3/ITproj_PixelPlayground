@@ -70,7 +70,10 @@ let crazyPaddle2 = {
 //wenn eine Taste gedrückt wird: changeDirection aufrufen, um paddles zu bewegen
 window.addEventListener("keydown", crazychangeDirection);
 //wenn Reset button geklickt wird, das game von neu starten
-crazyReset.addEventListener("click", crazyresetGame);
+crazyReset.addEventListener("click", function() {
+    crazyresetGame();
+    crazygameStart();
+});
 
 //Game Mode auswählen?
 

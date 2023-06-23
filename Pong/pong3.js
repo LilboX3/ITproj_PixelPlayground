@@ -69,7 +69,10 @@ let illusionPaddle2 = {
 //wenn eine Taste gedrückt wird: changeDirection aufrufen, um paddles zu bewegen
 window.addEventListener("keydown", illusionchangeDirection);
 //wenn Reset button geklickt wird, das game von neu starten
-illusionReset.addEventListener("click", illusionresetGame);
+illusionReset.addEventListener("click", function(){
+    illusionresetGame();
+    illusiongameStart();
+});
 
 //Game Mode auswählen?
 
