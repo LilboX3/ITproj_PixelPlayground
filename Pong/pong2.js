@@ -292,7 +292,7 @@ function crazycheckCollision(){
             type: "POST",
             data: { username: username2, score: crazyPlayer2Score, game: "Crazy Pong" },
             success: function(response) {
-                console.log("score sent <3");
+                console.log("score sent <3 to:", username2);
             },
             error: function(xhr, status, error) {
                 console.error("Error sending score :( " + error);
@@ -313,7 +313,7 @@ function crazycheckCollision(){
                 type: "POST",
                 data: { username: username, score: crazyPlayer1Score, game: "Crazy Pong" },
                 success: function(response) {
-                    console.log("score sent <3");
+                    console.log("score sent <3 to:", username);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error sending score :( " + error);
