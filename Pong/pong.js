@@ -276,7 +276,7 @@ function saveSecond(){
                 async: false,
                 data: { username: username2, score: player2Score, game: "Pong" },
                 success: function(response) {
-                    console.log("score sent <3");
+                    console.log("score sent <3 to:", username2);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error sending score :( " + error);
@@ -297,7 +297,7 @@ function saveSecond(){
                 async: false,
                 data: { username: username, score: player1Score, game: "Pong" },
                 success: function(response) {
-                    console.log("score sent <3");
+                    console.log("score sent <3 to:", username);
                 },
                 error: function(xhr, status, error) {
                     console.error("Error sending score :( " + error);
