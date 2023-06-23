@@ -1,7 +1,7 @@
 var username = document.querySelector("#player1name").innerHTML;
 var username2 = "";
 console.log("Current username: ", username);
-
+updateHighScores();
 const gameBoard = document.querySelector("#gameBoard");
 
 //verstecken, bis game Mode ausgewählt wurde

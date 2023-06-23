@@ -92,6 +92,7 @@ max Height
 
 //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
 function crazygameStart(){
+    updateHighScores();
     crazycreateBalls();
     crazynextTick();
 }
@@ -357,6 +358,7 @@ function crazycheckCollision(){
         point2= false;
         point3 = false;
         crazyupdateScore();
+        updateHighScores();
         crazycreateBalls();
         return;
     }   

@@ -92,6 +92,7 @@ max Height
 
 //Ball wird erstellt mit random Richtung, dann Spielablauf aufgerufen
 function illusiongameStart(){
+    updateHighScores();
     illusioncreateBalls();
     illusionnextTick();
 }
@@ -284,6 +285,7 @@ function illusioncheckCollision(){
     //LINKS Tor!!! player2 bekommt punkt 
     if(illusionBallX <= 0){
         illusionPlayer2Score +=1;
+        updateHighScores();
         $.ajax({
             url: "/ITproj_PixelPlayground-master/src/highscore.php",
             type: "POST",
@@ -305,6 +307,7 @@ function illusioncheckCollision(){
     //RECHTS Tor!!! player1 bekommt punkt
     if(illusionBallX >= illusionWidth){
             illusionPlayer1Score +=1;
+            updateHighScores();
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
                 type: "POST",
