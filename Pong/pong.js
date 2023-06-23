@@ -335,8 +335,7 @@ function saveSecond(){
 
     //Die beiden Paddles bewegen
     function changeDirection(event){
-        const keyPressed = event.keyCode;
-        console.log(keyPressed); //P1: w = 87, a = 65, s = 83, d = 68 ---- P2: up = 38, left = 37, right = 39, down = 40
+        const keyPressed = event.keyCode;//P1: w = 87, a = 65, s = 83, d = 68 ---- P2: up = 38, left = 37, right = 39, down = 40
         const paddle1Up = 87;
         const paddle1Down = 83;
 
