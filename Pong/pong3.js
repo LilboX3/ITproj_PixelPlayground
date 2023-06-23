@@ -463,4 +463,5 @@ document.getElementById('illusionEnd').onclick = function(){
     illusionresetGame();
     document.getElementById("ponghead").innerHTML = 'Play Pong';
     console.log("game ended");
+    illusionBallSpeed = 0;
 }

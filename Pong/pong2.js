@@ -546,5 +546,6 @@ document.getElementById('crazyEnd').onclick = function(){
     crazyresetGame();
     document.getElementById("ponghead").innerHTML = 'Play Pong';
     console.log("game ended");
+    crazyBallSpeed = 0;
 }
 //-------------------------------CRAZY MODE END---------------------------------

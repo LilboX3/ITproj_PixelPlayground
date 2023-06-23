@@ -10,10 +10,12 @@ document.querySelector("#crazyContainer").style.display = 'none';
 document.querySelector("#illusionContainer").style.display = 'none';
 
 document.getElementById('endBtn').onclick = function(){
+    resetGame();
     document.querySelector("#gameMode").style.display = 'block';
     document.querySelector("#gameContainer").style.display = 'none';
     document.getElementById("ponghead").innerHTML = 'Play Pong';
     console.log("game ended");
+    ballSpeed = 0;
 }
 
 //Normalmode 
