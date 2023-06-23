@@ -9,10 +9,10 @@ include_once 'navbar.php';
 <body class="background">
     <div class="parent-flex-container">
         
-        <div id="scoreboard" class="scoreboard">
+        <div id="scoreboard" class="scoreboard" style="width:20%;">
             <div class="score-label">SCORE:....<span id="score">0</span></div>
         </div>
-        <div id="topfive" class="topfive">
+        <div id="topfive" class="topfive" style="width:20%;">
             <span id="top5score"></span>
         </div>    
 
