@@ -32,15 +32,23 @@ include_once 'navbar.php';
             </div>
             <?php }?>
             </div>
-
+            
                 <div class="gameField d-flex justify-content-center align-items-center">
                     <!--<div id="logo-container">
                     <img src="Tetris/pics/tetrislogo.png" alt="Tetris Logo" />
                     </div>-->
-                    <div class="mt-5 mb-5">
-                    <canvas id="tetris"></canvas>
-                    </div>
-                </div><
+                    <div class="row">
+                        <div class="col-12 mt-5 mb-2 d-flex justify-content-center align-items-center">
+                            <canvas canvas id="tetris"></canvas>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                            <button id="playButton" class="playBtn">Start Game</button>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                            <button id="resetButton" class="playBtn">Reset Game</button>
+                        </div>
+                    </div><
+                </div>    
         </div>
     </div>        
 
