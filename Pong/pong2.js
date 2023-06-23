@@ -534,8 +534,6 @@ function crazyresetGame(){
 
     //Intervall clearen wenn so machen: gameStart() nochmal aufrufen
     clearInterval(crazyIntervalID);
-    crazygameStart();
-    
 }
 
 

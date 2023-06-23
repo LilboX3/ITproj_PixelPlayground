@@ -400,7 +400,6 @@ function saveSecond(){
 
         //Intervall clearen wenn so machen: gameStart() nochmal aufrufen
         clearInterval(intervalID);
-        gameStart();
         
     }
    

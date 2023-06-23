@@ -450,7 +450,6 @@ function illusionresetGame(){
 
     //Intervall clearen wenn so machen: gameStart() nochmal aufrufen
     clearInterval(illusionIntervalID);
-    illusiongameStart();
     
 }
 

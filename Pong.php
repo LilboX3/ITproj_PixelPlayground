@@ -21,7 +21,6 @@ include_once 'navbar.php';
             <div class="col-8" style="text-align:center;">
             <h1 id="ponghead" class="textstyle" >Play Pong</h1>
             <div class="player1 textstyle" id="pongplayer1">
-                
             <?php 
                 if(isset($_SESSION['username'])){?>
                     <div id="player1name"><?php echo $_SESSION['username']?></div>
