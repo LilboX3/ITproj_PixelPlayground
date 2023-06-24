@@ -19,7 +19,8 @@ let gameBoardArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fill
 
 let stoppedShapeArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fill(0));
 
-
+const playButton = document.querySelector("#playButton");
+const resetButton = document.querySelector("#resetButton");
 
 
 let DIRECTION = {
@@ -149,6 +150,21 @@ function SetupCanvas() {
     ctx.fillText("D:Move Right", 310, 413);
     ctx.fillText("S:Move Down", 310, 438);
     ctx.fillText("E:Rotate Right", 310, 463);
+
+    playButton.addEventListener('click', function() {
+        console.log("Play button clicked");
+        window.setInterval(function() {
+            if(winOrLose != "Game Over") {
+                MoveTetrominoDown();
+            }
+        }, 1000);
+    });
+    
+    resetButton.addEventListener('click', function() {
+        console.log("Reset button clicked");
+        location.reload();
+    });
+
   
     document.addEventListener('keydown', HandleKeyPress);
     CreateTetrominos();
@@ -203,6 +219,7 @@ function isLoggedIn($user) {
         }
     });
 }
+
 function HandleKeyPress(key) {
     if(winOrLose != "Game Over") {
         if(key.keyCode === 65 || key.keycode === 37) {        // A key or left arrow
@@ -240,22 +257,9 @@ function MoveTetrominoDown() {
 }
 
 
-const playButton = document.querySelector("#playButton");
-const resetButton = document.querySelector("#resetButton");
 
-playButton.addEventListener('click', function() {
-    console.log("Play button clicked");
-    window.setInterval(function() {
-        if(winOrLose != "Game Over") {
-            MoveTetrominoDown();
-        }
-    }, 1000);
-});
 
-resetButton.addEventListener('click', function() {
-    console.log("Reset button clicked");
-    location.reload();
-});
+
 
 
 function DeleteTetromino() {
