@@ -267,11 +267,9 @@ function savePlayers() {
 
 
 const showWelcomeMessage = () => {
-    const speechBubble = document.querySelector(".speech-bubble");
-    speechBubble.classList.add("show-bubble");
-
+    const speechBubble = $(".speech-bubble");
     setTimeout(() => {
-        speechBubble.classList.remove("show-bubble");
+        speechBubble.fadeOut("slow");
     }, 3000); // Die Sprechblase wird nach 3 Sekunden ausgeblendet
 };
 

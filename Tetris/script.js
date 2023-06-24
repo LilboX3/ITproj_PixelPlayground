@@ -12,7 +12,7 @@ let coordinateArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fil
 let curTetromino = [[1,0], [0,1], [1,1], [2,1]];
 
 let tetrominos = [];
-let tetrominoColors = ['purple', 'cyan', 'blue', 'yellow', 'orange', 'green', 'red']; //pink maybe
+let tetrominoColors = ['rgb(183,29,176)', 'rgb(0,193,235)', 'rgb(28,28,249)', 'rgb(255,201,29)', 'rgb(254,118,14)', 'rgb(68,188,47)', 'rgb(241,11,48'];
 let curTetrominoColor;
 
 let gameBoardArray = [...Array(gBarrayHeight)].map(e => Array(gBarrayWidth).fill(0));

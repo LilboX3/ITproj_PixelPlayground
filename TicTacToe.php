@@ -5,6 +5,7 @@ include_once 'navbar.php';
 <link rel="stylesheet" href="TicTacToe/style.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="TicTacToe/prstartk.ttf">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <title>Tic-Tac-Toe</title>
 </head>
 
@@ -65,16 +66,15 @@ include_once 'navbar.php';
                         <div class="pixel-man-legs"></div>
                     </div>
                     <div class="speech-bubble show-bubble">
-                        Hallo, herzlich Willkommen!
-                        Lassen Sie sich den Spiel genießen!
+                        Welcome! Have fun playing
                     </div>
                 </div>
                 <!--NEU-->
                 <section class="display announcer hide scoreTxt"></section>
                 <section class="controls">
                     <button id="reset">Reset</button>
-                    <button id="enableKI">KI-aktiv</button>
-                    <button id="disableAI">KI deaktivieren</button>
+                    <button id="enableKI">Enemy AI on</button>
+                    <button id="disableAI">Enemy AI off</button>
                 </section>
             </div>
         </div>
