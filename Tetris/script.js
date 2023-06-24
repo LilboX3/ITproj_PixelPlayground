@@ -54,6 +54,7 @@ function CreateCoordArray() {
 }
 
 function SetupCanvas() {
+    updateHighScores();
     canvas = document.getElementById('tetris');
     ctx = canvas.getContext('2d');
     canvas.width = 936;
