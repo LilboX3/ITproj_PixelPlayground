@@ -9,30 +9,25 @@ include_once 'navbar.php';
 
 <body class="background">
     <div class="parent-flex-container">
-
-        <div id="scoreboard" class="scoreboard">
-            <div class="score-label">SCORE:....<span id="score">0</span></div>
-        </div>
         <div id="topfive" class="topfive">
             <span id="top5score"></span>
-        </div>  
-        
+        </div>
         <div class="container">
-        <?php 
-                if (isset($_SESSION['username'])){ ?>
-                    <script>
-                        var username = '<?php echo $_SESSION['username']; ?>';
-                        console.log("Current username inside .php : ", username);
-                    </script>
-                    <?php 
-                } 
-        ?>
-        <?php if(!isset($_SESSION['username'])){?>
-            <div class="entername" id="scramblebox">
-                <div style="font-size:small;">Enter your name to save your score !</div>
-                <input type="text" id="scramblename" placeholder="be creative!"> <button id="savescramble">Save</button>
-            </div>
-            <?php }?>
+            <?php
+            if (isset($_SESSION['username'])) { ?>
+                <script>
+                    var username = '<?php echo $_SESSION['username']; ?>';
+                    console.log("Current username inside .php : ", username);
+                </script>
+                <?php
+            }
+            ?>
+            <?php if (!isset($_SESSION['username'])) { ?>
+                <div class="entername" id="scramblebox">
+                    <div style="font-size:small;">Enter your name to save your score !</div>
+                    <input type="text" id="scramblename" placeholder="be creative!"> <button id="savescramble">Save</button>
+                </div>
+            <?php } ?>
 
             <header>
                 <h2>Word Scramble Game</h2>
@@ -51,6 +46,7 @@ include_once 'navbar.php';
                 <input type="text" class="placeHolder" id="input" placeholder="Enter a valid word">
 
                 <div class="btn">
+                    <button id="start-game">Start Game</button>
                     <button class="refresh-word">Refresh Word</button>
                     <button class="check-word">Check Word</button>
                     <button class="levelbtn" data-level="0">Level 1</button>
