@@ -1,0 +1,358 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Press Start', sans-serif;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Press Start';
+    src: url('prstartk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes clearAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.tile.clear-animation {
+    animation: clearAnimation 0.3s forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.gameField {
+    background-color: rgb(4, 0, 30);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 2%;
+    border-color: rgb(243, 255, 81);
+    border-style: outset;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    margin-top: 10%;
+    font-family: 'Press Start', sans-serif;
+}
+
+.display {
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'Press Start', sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.containerField {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 400px;
+}
+
+.tile {
+    border: 5px solid;
+    border-style: outset;
+    border-color: rgb(105, 34, 143);
+    min-width: 150px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 80px;
+    cursor: pointer;
+    font-family: 'Press Start', sans-serif;
+}
+
+.playerX {
+    color: #09C372;
+}
+
+.playerO {
+    color: #498AFB;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.controls button {
+    color: rgb(255, 255, 255);
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    margin-left: 1em;
+    cursor: pointer;
+    font-family: 'Press Start', sans-serif;
+}
+
+.restart {
+    background-color: #498AFB;
+}
+
+#reset {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+
+#changeSymbolPowerUp {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+#flipHorizontal {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+#flipVertical {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+#enableKI {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+#disableAI {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+
+#flipVertical {
+    font-family: 'Press Start', sans-serif;
+    font-size: 1em;
+    color: white;
+    width: 100;
+    height: 50;
+    border: 2px solid;
+    border-color: rgb(108, 15, 90);
+    padding: 3px;
+    background-color: rgb(214, 40, 205);
+    cursor: pointer;
+}
+
+#reset:active {
+    background-color: rgb(155, 34, 159);
+}
+
+html,
+body {
+    font-size: 1rem;
+}
+
+body {
+    font-family: 'Press Start', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2%;
+    color: aliceblue;
+    font-family: 'Press Start', sans-serif;
+    text-align: center;
+}
+
+.scoreTxt {
+    font-family: 'Press Start', sans-serif;
+    color: rgb(243, 255, 81);
+    font-size: 3rem;
+}
+
+
+/*-------*/
+
+.pixel-man-container {
+    position: relative;
+    display: inline-block;
+}
+
+.pixel-man {
+    width: 120px;
+    height: 120px;
+    background-image: url('pics/pngwing.com.png');
+    /* Pfad zum Bild */
+    background-size: cover;
+    position: relative;
+    border-radius: 50%;
+}
+
+
+.speech-bubble {
+    display: none;
+    position: absolute;
+    top: -80px;
+    left: 110px;
+    padding: 8px;
+    background-color: #fff;
+    /* Weiß */
+    border: 1px solid #000;
+    /* Schwarz */
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.show-bubble {
+    display: block;
+    animation: fadeIn 4s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.scoreTxt {
+    font-family: 'Press Start', sans-serif;
+    color: rgb(243, 255, 81);
+    font-size: 3rem;
+}
+
+.top5score {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+
+.score-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.score-label span {
+    margin-left: 10px;
+    /* adjust this value to add space between label and score */
+}
+
+
+.scoreboard {
+    position: absolute;
+    left: 0;
+    background-image: url('pics/Scoreboard.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding-bottom: 150px;
+    width: 25%;
+    height: 340px;
+    margin-left: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.topfive {
+    position: absolute;
+    left: 0;
+    background-image: url('pics/topfive.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 20px;
+    width: 25%;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+
+}
