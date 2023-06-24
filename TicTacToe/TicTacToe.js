@@ -5,7 +5,7 @@ const resetButton = document.querySelector("#reset");
 const announcer = document.querySelector(".announcer");
 const disableAIButton = document.querySelector("#disableAI");
 const enableKIButton = document.querySelector("#enableKI");
-
+updateHighScores();
 
 
 let board = ["", "", "", "", "", "", "", "", ""];
@@ -112,6 +112,7 @@ const announce = (type) => {
     switch (type) {
         case PLAYERO_WON:
             announcer.innerHTML = 'Player <span class="playerO">O</span> Won';
+            updateHighScores();
             scoreO += 10;
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
@@ -127,6 +128,7 @@ const announce = (type) => {
             break;
         case PLAYERX_WON:
             announcer.innerHTML = 'Player <span class="playerX">X</span> Won';
+            updateHighScores();
             scoreX += 10;
             $.ajax({
                 url: "/ITproj_PixelPlayground-master/src/highscore.php",
@@ -288,7 +290,7 @@ function updateHighScores() {
             var highScores = JSON.parse(data);
             var scoresHTML = '';
             for (var i = 0; i < highScores.length; i++) {
-                scoresHTML += '<p class="top5score">' + highScores[i].username + '........' + highScores[i].score + '</p>';
+                scoresHTML += '<p class="top5score">' + highScores[i].username + '.....' + highScores[i].score + '</p>';
             }
             document.getElementById('topfive').innerHTML = scoresHTML;
         }
